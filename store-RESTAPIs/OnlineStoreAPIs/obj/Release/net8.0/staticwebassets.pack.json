@@ -1,0 +1,69 @@
+{
+  "Files": [
+    {
+      "Id": "C:\\Users\\Elalamia\\Desktop\\Souq\\store-asp.net\\OnlineStoreAPIs\\wwwroot\\ProductsImages\\1522ab37-9b52-4792-b89c-672fba66d7cf.jpg",
+      "PackagePath": "staticwebassets\\ProductsImages\\1522ab37-9b52-4792-b89c-672fba66d7cf.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Elalamia\\Desktop\\Souq\\store-asp.net\\OnlineStoreAPIs\\wwwroot\\ProductsImages\\1f55430d-2a2b-41fb-8b37-6ffeb727b8cd.jpg",
+      "PackagePath": "staticwebassets\\ProductsImages\\1f55430d-2a2b-41fb-8b37-6ffeb727b8cd.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Elalamia\\Desktop\\Souq\\store-asp.net\\OnlineStoreAPIs\\wwwroot\\ProductsImages\\3de69bb6-1627-4445-920f-0021e4b7a0a6.png",
+      "PackagePath": "staticwebassets\\ProductsImages\\3de69bb6-1627-4445-920f-0021e4b7a0a6.png"
+    },
+    {
+      "Id": "C:\\Users\\Elalamia\\Desktop\\Souq\\store-asp.net\\OnlineStoreAPIs\\wwwroot\\ProductsImages\\49fdea3d-2c29-49d0-afc9-2de467d42aef.png",
+      "PackagePath": "staticwebassets\\ProductsImages\\49fdea3d-2c29-49d0-afc9-2de467d42aef.png"
+    },
+    {
+      "Id": "C:\\Users\\Elalamia\\Desktop\\Souq\\store-asp.net\\OnlineStoreAPIs\\wwwroot\\ProductsImages\\6ceaa657-2738-4e7f-a363-a66849f62ef7.jpg",
+      "PackagePath": "staticwebassets\\ProductsImages\\6ceaa657-2738-4e7f-a363-a66849f62ef7.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Elalamia\\Desktop\\Souq\\store-asp.net\\OnlineStoreAPIs\\wwwroot\\ProductsImages\\79aa2042-f4e3-4314-9a48-a5d28d521565.jpg",
+      "PackagePath": "staticwebassets\\ProductsImages\\79aa2042-f4e3-4314-9a48-a5d28d521565.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Elalamia\\Desktop\\Souq\\store-asp.net\\OnlineStoreAPIs\\wwwroot\\ProductsImages\\8efd2f76-324f-405f-b5ee-7933b25dc493.jpg",
+      "PackagePath": "staticwebassets\\ProductsImages\\8efd2f76-324f-405f-b5ee-7933b25dc493.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Elalamia\\Desktop\\Souq\\store-asp.net\\OnlineStoreAPIs\\wwwroot\\ProductsImages\\92414c5e-cc48-443d-b753-c46fc8fe5996.jpg",
+      "PackagePath": "staticwebassets\\ProductsImages\\92414c5e-cc48-443d-b753-c46fc8fe5996.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Elalamia\\Desktop\\Souq\\store-asp.net\\OnlineStoreAPIs\\wwwroot\\ProductsImages\\97bd63db-67d7-4cd0-8b14-b8a36d105764.jpg",
+      "PackagePath": "staticwebassets\\ProductsImages\\97bd63db-67d7-4cd0-8b14-b8a36d105764.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Elalamia\\Desktop\\Souq\\store-asp.net\\OnlineStoreAPIs\\wwwroot\\ProductsImages\\b79a6dd4-0d64-487d-8e68-22e0e87e578e.jpg",
+      "PackagePath": "staticwebassets\\ProductsImages\\b79a6dd4-0d64-487d-8e68-22e0e87e578e.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Elalamia\\Desktop\\Souq\\store-asp.net\\OnlineStoreAPIs\\wwwroot\\ProductsImages\\ecb5970d-35f5-4abf-b2d0-3ca1f10e1cb1.jpg",
+      "PackagePath": "staticwebassets\\ProductsImages\\ecb5970d-35f5-4abf-b2d0-3ca1f10e1cb1.jpg"
+    },
+    {
+      "Id": "obj\\Release\\net8.0\\staticwebassets\\msbuild.OnlineStoreAPIs.Microsoft.AspNetCore.StaticWebAssetEndpoints.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssetEndpoints.props"
+    },
+    {
+      "Id": "obj\\Release\\net8.0\\staticwebassets\\msbuild.OnlineStoreAPIs.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Release\\net8.0\\staticwebassets\\msbuild.build.OnlineStoreAPIs.props",
+      "PackagePath": "build\\OnlineStoreAPIs.props"
+    },
+    {
+      "Id": "obj\\Release\\net8.0\\staticwebassets\\msbuild.buildMultiTargeting.OnlineStoreAPIs.props",
+      "PackagePath": "buildMultiTargeting\\OnlineStoreAPIs.props"
+    },
+    {
+      "Id": "obj\\Release\\net8.0\\staticwebassets\\msbuild.buildTransitive.OnlineStoreAPIs.props",
+      "PackagePath": "buildTransitive\\OnlineStoreAPIs.props"
+    }
+  ],
+  "ElementsToRemove": []
+}
