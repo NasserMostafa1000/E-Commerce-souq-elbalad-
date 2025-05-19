@@ -50,6 +50,7 @@ export default function AddToCart({ productDetailsId, Quantity }) {
       console.error("Error adding product to cart:", error.message);
     } finally {
       setIsLoading(false);
+      navigate("/cart");
     }
   };
 

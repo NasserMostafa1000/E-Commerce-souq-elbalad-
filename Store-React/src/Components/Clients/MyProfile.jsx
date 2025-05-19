@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import "../../Styles/MyProfile.css";
-import API_BASE_URL from "../Constant";
+import API_BASE_URL, { SiteName } from "../Constant";
 import PhoneModal from "../../Components/CreateOrder/PhoneModel";
 import { Helmet } from "react-helmet";
 import {
@@ -128,10 +128,10 @@ export default function MyProfile() {
   return (
     <div className="container">
       <Helmet>
-        <title>الملف الشخصي | سوق البلد</title>
+        <title>الملف الشخصي | {SiteName}</title>
         <meta
           name="description"
-          content="عرض المعلومات الشخصية في موقع سوق البلد"
+          content="عرض معلوماتك الشخصية في متجرنا الالكتروني  "
         />
       </Helmet>
       <h1 className="profile-title">الملف الشخصي</h1>

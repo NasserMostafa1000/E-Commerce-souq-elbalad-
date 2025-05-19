@@ -1,186 +1,298 @@
-/* بداية ملف PurchaseOperationDetails.css */
-
-/* إعدادات الخلفية والصفحة */
-html,
-body {
-  margin: 0;
-  padding: 0;
-  background-color: grey;
-  font-family: "Arial", sans-serif;
-  color: black;
-}
-
-.container {
-  width: 100%;
-  padding: 20px;
-  background-color: grey;
+.purchase-container {
+  background-color: #f9f9fb; /* خلفية هادية */
+  color: #333; /* النص الأساسي */
+  padding: 2rem;
   direction: rtl;
+  border-radius: 16px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  max-width: 800px;
+  margin: auto;
+  font-family: "Cairo", sans-serif;
+}
+.purchase-container {
+  direction: rtl;
+  text-align: right;
+  font-family: "Cairo", sans-serif;
+  padding: 20px;
 }
 
-/* تنسيق العناوين */
-.title {
-  text-align: center;
-  font-size: 40px;
+.highlighted-title {
+  font-size: 24px;
+  color: #333;
   margin-bottom: 20px;
-  color: black;
+  border-bottom: 2px solid #ddd;
+  padding-bottom: 10px;
 }
-/* تنسيق العناوين المميزة */
-.highlighted-title {
-  background-color: #ffcc00; /* اختيار لون خلفية مميز (مثال: أصفر) */
-  color: #fff; /* لون النص أبيض */
-  padding: 10px 20px; /* إضافة بعض الحشو حول النص */
-  font-size: 1.6rem; /* حجم الخط */
-  font-weight: bold; /* جعل الخط عريض */
-  text-align: center; /* محاذاة النص في المنتصف */
-  border-radius: 8px; /* حواف دائرية */
-  margin-bottom: 20px; /* إضافة مسافة أسفل العنوان */
+
+.invoice-row {
+  display: flex;
+  justify-content: space-between;
+  margin: 10px 0;
+  padding: 10px;
+  border-bottom: 1px dashed #ccc;
 }
-/* تنسيق العناوين المميزة */
-.highlighted-title {
-  background-color: #4caf50; /* اللون الأخضر الهادئ */
-  color: #fff; /* نص أبيض */
-  padding: 10px 20px;
-  font-size: 1.6rem;
+
+.invoice-label {
   font-weight: bold;
-  text-align: center;
-  border-radius: 8px;
-  margin-bottom: 20px;
+  color: #555;
 }
 
-.highlighted-title:hover {
-  background-color: #45a049; /* تغيير اللون عند التمرير */
+.invoice-value {
+  color: #222;
+}
+
+.payment-methods {
+  margin-top: 20px;
+}
+
+.payment-option {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
   cursor: pointer;
 }
 
-/* تغيير ألوان العناوين حسب القسم */
-.payment-method-selection .highlighted-title {
-  background-color: #ff5722; /* لون برتقالي مميز */
+.payment-methods {
+  display: flex;
+  flex-direction: column; /* توزيع الأزرار بشكل عمودي */
+  gap: 10px; /* إضافة مسافة بين الأزرار */
 }
 
-.payment-method-selection .highlighted-title:hover {
-  background-color: #e64a19; /* تغيير اللون عند التمرير */
-}
-
-/* إذا أردت إضافة تأثير تفاعل عند التمرير على العنوان */
-.highlighted-title:hover {
-  background-color: #ff9800; /* تغيير اللون عند التمرير (مثال: برتقالي) */
-  cursor: pointer; /* تغيير شكل المؤشر عند التمرير */
-}
-
-/* تنسيق رسالة الحالة العامة */
-.global-message {
-  padding: 1rem;
-  text-align: center;
-  font-weight: bold;
-  border: 1px solid;
-  border-radius: 5px;
-  margin-bottom: 1rem;
-}
-
-.global-message.success {
-  background-color: #ddffdd;
-  color: #2e7d32;
-  border-color: #2e7d32;
-}
-
-.global-message.error {
-  background-color: #ffdddd;
-  color: #a94442;
-  border-color: #a94442;
-}
-
-/* تنسيق قسم العناوين والأقسام */
-.payment-method-selection {
-  margin: 20px 0;
-  text-align: center;
-}
-
-.payment-title {
-  font-size: 1.8rem;
-  margin-bottom: 10px;
-  color: black;
-}
-
-/* تنسيق أزرار الراديو */
-.radio-label {
+.payment-option {
   display: flex;
   align-items: center;
-  justify-content: center;
-  font-size: 1.2rem;
-  margin-bottom: 8px;
-  color: black;
+  gap: 8px; /* المسافة بين الأيقونة والنص */
+  font-size: 1rem; /* تحديد حجم الخط */
+  cursor: pointer;
 }
 
-.radio-label input[type="radio"] {
-  margin-left: 8px;
+.payment-option input {
+  width: 20px;
+  height: 20px;
 }
 
-/* تنسيق أيقونات الدفع */
-.payment-icons {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 15px;
+.payment-details {
+  font-size: 0.9rem;
+  color: #555;
+  margin-top: 5px;
+}
+
+@media (max-width: 768px) {
+  .payment-methods {
+    flex-direction: column; /* يجعل الأزرار تتكدس عموديًا على الشاشات الصغيرة */
+    align-items: center; /* محاذاة الأزرار في المنتصف */
+  }
+
+  .payment-option {
+    font-size: 0.9rem; /* تقليل حجم الخط في الأجهزة الصغيرة */
+  }
+
+  .payment-details {
+    font-size: 0.8rem; /* تقليل حجم تفاصيل الدفع على الشاشات الصغيرة */
+  }
+}
+
+.cod-icon {
+  width: 50px;
+  height: auto;
+  display: block;
   margin-top: 10px;
 }
 
-.payment-icons img {
-  width: 60px;
-  height: auto;
-  transition: transform 0.2s ease-in-out;
-  cursor: pointer;
+.tax-row {
+  margin-top: 10px;
+  font-size: 16px;
+  color: #d32f2f;
 }
 
-.payment-icons img:hover {
-  transform: scale(1.1);
-}
-
-.transaction-info {
-  margin-left: 10px;
-  font-size: 1.2rem;
+.final-price {
+  margin-top: 20px;
+  font-size: 20px;
   font-weight: bold;
-  color: black;
+  background: #fff9c4;
+  padding: 10px;
+  border-radius: 8px;
 }
 
-/* تنسيق زر الشراء */
+.note {
+  background: #fff3e0;
+  padding: 15px;
+  border: 1px solid #ffcc80;
+  margin-top: 20px;
+  border-radius: 8px;
+}
+
 .save-btn {
   display: block;
   width: 100%;
-  padding: 12px;
-  background-color: green;
+  padding: 15px;
+  background-color: #4caf50;
   color: white;
   border: none;
+  font-size: 18px;
   border-radius: 8px;
   cursor: pointer;
-  font-size: 1.2rem;
   margin-top: 20px;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.3s;
+}
+
+.save-btn:hover {
+  background-color: #45a049;
+}
+
+.loading-overlay {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: rgba(255, 255, 255, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.spinner {
+  width: 50px;
+  height: 50px;
+  border: 5px solid #ccc;
+  border-top: 5px solid #4caf50;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* العناوين */
+.highlighted-title {
+  color: #2c3e50;
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  border-bottom: 2px solid #ddd;
+  padding-bottom: 0.5rem;
+}
+
+.section-title {
+  color: #34495e;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+
+/* الثوابت */
+.invoice-label {
+  color: #555; /* لون ثابت مريح */
+  font-weight: 600;
+  width: 150px;
+  display: inline-block;
+}
+
+/* الديناميك */
+.invoice-value {
+  color: #2a9d8f; /* لون بارز شوي */
+  font-weight: 500;
+}
+
+.invoice-value.link {
+  color: #e76f51;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.global-message.success {
+  background-color: #d4edda;
+  color: #155724;
+  padding: 1rem;
+  margin: 1rem 0;
+  border: 1px solid #c3e6cb;
+  border-radius: 8px;
+}
+
+.global-message.error {
+  background-color: #f8d7da;
+  color: #721c24;
+  padding: 1rem;
+  margin: 1rem 0;
+  border: 1px solid #f5c6cb;
+  border-radius: 8px;
+}
+
+/* طرق الدفع */
+.payment-methods {
+  margin-top: 2rem;
+}
+
+.payment-option {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 0.5rem;
+  font-size: 1.1rem;
+  color: #333;
+}
+
+.payment-details {
+  margin: 0.5rem 0 1rem 2rem;
+  color: #2a9d8f;
+  font-weight: 600;
+}
+
+/* الملاحظة */
+.note {
+  background-color: #fff3cd;
+  color: #856404;
+  padding: 1rem;
+  border-radius: 8px;
+  margin-top: 1.5rem;
+  border: 1px solid #ffeeba;
+}
+
+/* الأزرار */
+.save-btn {
+  background-color: #2a9d8f;
+  color: white;
+  border: none;
+  padding: 0.75rem 2rem;
+  font-size: 1.2rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  margin-top: 2rem;
+  display: block;
+  width: 100%;
+}
+
+.save-btn:hover {
+  background-color: #21867a;
 }
 
 .save-btn:disabled {
-  background-color: grey;
+  background-color: #ccc;
+  cursor: not-allowed;
 }
 
-/* طبقة التحميل لتغطية الشاشة */
+/* اللودينج */
 .loading-overlay {
   position: fixed;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
+  right: 0;
+  bottom: 0;
+  background: rgba(255, 255, 255, 0.8);
   display: flex;
-  justify-content: center;
   align-items: center;
-  z-index: 9999;
+  justify-content: center;
 }
 
 .spinner {
-  border: 8px solid #f3f3f3;
-  border-top: 8px solid #555;
+  border: 6px solid #f3f3f3;
+  border-top: 6px solid #2a9d8f;
   border-radius: 50%;
-  width: 60px;
-  height: 60px;
+  width: 50px;
+  height: 50px;
   animation: spin 1s linear infinite;
 }
 
@@ -192,5 +304,3 @@ body {
     transform: rotate(360deg);
   }
 }
-
-/* نهاية ملف PurchaseOperationDetails.css */

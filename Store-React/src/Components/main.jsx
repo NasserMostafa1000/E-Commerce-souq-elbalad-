@@ -26,6 +26,8 @@ import UpdateAdminInfo from "./AdminBar/UpdateContactUs";
 import ContactUsCom from "./Contact_About/ContactUsCom";
 import AboutUs from "./Contact_About/AboutUs";
 import PrivacyAndTerms from "./Privacy_Terms/PrivacyAndTerms";
+import { PiWall } from "react-icons/pi";
+import PiWallet from "../PiWallet";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <GoogleOAuthProvider clientId="1002692311708-dv44b5us60jlovbgdcv87rbuvgfs01vo.apps.googleusercontent.com">
@@ -45,6 +47,7 @@ root.render(
         <Route path="/admins/Employees" element={<Employees />} />
         <Route path="/admins/AddProduct" element={<AddProduct />} />
         <Route path="/admin/edit-product" element={<ProductForm />} />
+        <Route path="/Pi" element={<PiWallet />} />
         <Route path="/admin/Clients" element={<Clients />} />
         <Route path="/admin/UpdateAdminInfo" element={<UpdateAdminInfo />} />
         <Route path="/Contact" element={<ContactUsCom />} />

@@ -1,17 +1,60 @@
 import API_BASE_URL, { ServerPath } from "./Constant";
 import * as signalR from "@microsoft/signalr";
 let connection = null; // تعريف الاتصال كمتغير عام
-export const SendSignalMessageForOrders = async (message) => {
-  try {
-    await connection.start();
-    await connection.invoke("SendMessage", message);
-    console.log("📤 Message sent:", message);
-  } catch (error) {
-    console.error("❌ Connection failed:", error);
-  } finally {
-    await connection.stop();
+export const startConnection = async () => {
+  if (!connection) {
+    connection = new signalR.HubConnectionBuilder()
+      .withUrl(`${ServerPath}/orderHub`, {
+        withCredentials: false, // مهم جداً للسماح بالـ CORS
+      })
+      .withAutomaticReconnect()
+      .configureLogging(signalR.LogLevel.Information)
+      .build();
+
+    try {
+      await connection.start();
+      console.log("✅ SignalR connection started");
+    } catch (error) {
+      console.error("❌ Connection failed:", error);
+    }
   }
 };
+
+export const playNotificationSound = () => {
+  const sound = new Howl({
+    src: ["/Sounds/notification.mp3"],
+    volume: 1.0,
+    html5: true,
+    onplayerror: function (id, error) {
+      console.error("❌ خطأ في تشغيل الصوت:", error);
+      sound.once("unlock", () => {
+        sound.play();
+      });
+    },
+  });
+
+  sound.play();
+};
+export const SendSignalMessageForOrders = async (message) => {
+  if (connection && connection.state === signalR.HubConnectionState.Connected) {
+    try {
+      await connection.invoke("SendMessage", message);
+      console.log("📤 Message sent:", message);
+    } catch (error) {
+      console.error("❌ Error sending message:", error);
+    }
+  } else {
+    console.log("⚠️ Connection is not established.");
+    if (
+      connection &&
+      connection.state === signalR.HubConnectionState.Disconnected
+    ) {
+      console.log("🔄 Reopening connection...");
+      await startConnection(); // محاولة إعادة الاتصال تلقائيًا
+    }
+  }
+};
+
 export const startListeningToMessages = async (onMessageReceived) => {
   if (!connection) {
     connection = new signalR.HubConnectionBuilder()
@@ -23,15 +66,21 @@ export const startListeningToMessages = async (onMessageReceived) => {
       .build();
   }
 
-  try {
-    await connection.start();
-    connection.on("ReceiveMessage", (message) => {
-      if (onMessageReceived) {
-        onMessageReceived(message);
-      }
-    });
-  } catch (error) {
-    console.error("❌ Connection failed:", error);
+  // تحقق من الحالة الحالية للاتصال
+  if (connection.state === signalR.HubConnectionState.Disconnected) {
+    try {
+      await connection.start();
+      connection.on("ReceiveMessage", (message) => {
+        if (onMessageReceived) {
+          onMessageReceived(message);
+        }
+      });
+      console.log("Connection started successfully");
+    } catch (error) {
+      console.error("❌ Connection failed:", error);
+    }
+  } else {
+    console.log("The connection is already in a non-disconnected state.");
   }
 };
 
@@ -82,16 +131,22 @@ export const egyptianGovernorates = [
 ];
 export function getRoleFromToken(token) {
   if (!token) return null;
-  try {
-    // فك تشفير التوكن (JWT)
-    const payload = JSON.parse(atob(token.split(".")[1]));
 
-    return payload.role || null;
+  try {
+    const parts = token.split(".");
+    if (parts.length !== 3) throw new Error("Invalid JWT structure");
+
+    const base64Url = parts[1];
+    const base64 = base64Url.replace(/-/g, "+").replace(/_/g, "/"); // للتأكد من التوافق
+    const payload = JSON.parse(atob(base64));
+
+    return payload?.role ?? null;
   } catch (error) {
-    console.error("Invalid token:", error);
+    console.error("خطأ أثناء قراءة الدور من التوكن:", error.message);
     return null;
   }
 }
+
 export function GetUserNameFromToken(token) {
   if (!token || typeof token !== "string") return null;
 

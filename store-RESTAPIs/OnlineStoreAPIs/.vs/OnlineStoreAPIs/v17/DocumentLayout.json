@@ -1,7 +1,19 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\Elalamia\\Desktop\\Souq\\store-APIs\\OnlineStoreAPIs\\",
-  "Documents": [],
+  "WorkspaceRootPath": "C:\\Users\\Elalamia\\Desktop\\Souq\\store-RESTAPIs\\OnlineStoreAPIs\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{80373FDE-A381-4E7E-A74C-8AC3D612F9AF}|OnlineStoreAPIs.csproj|c:\\users\\elalamia\\desktop\\souq\\store-restapis\\onlinestoreapis\\controllers\\admininfocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{80373FDE-A381-4E7E-A74C-8AC3D612F9AF}|OnlineStoreAPIs.csproj|solutionrelative:controllers\\admininfocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1057FC58-AEE3-40B8-8115-DB33DF9E6B32}|..\\StoreBusinessLayer\\StoreServices.csproj|c:\\users\\elalamia\\desktop\\souq\\store-restapis\\storebusinesslayer\\ordersservices\\ordersrepo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{80373FDE-A381-4E7E-A74C-8AC3D612F9AF}|OnlineStoreAPIs.csproj|c:\\users\\elalamia\\desktop\\souq\\store-restapis\\onlinestoreapis\\controllers\\orderscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{80373FDE-A381-4E7E-A74C-8AC3D612F9AF}|OnlineStoreAPIs.csproj|solutionrelative:controllers\\orderscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
@@ -9,7 +21,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": -1,
+          "SelectedChildIndex": 5,
           "Children": [
             {
               "$type": "Bookmark",
@@ -30,6 +42,43 @@
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "AdminInfoController.cs",
+              "DocumentMoniker": "C:\\Users\\Elalamia\\Desktop\\Souq\\store-RESTAPIs\\OnlineStoreAPIs\\Controllers\\AdminInfoController.cs",
+              "RelativeDocumentMoniker": "Controllers\\AdminInfoController.cs",
+              "ToolTip": "C:\\Users\\Elalamia\\Desktop\\Souq\\store-RESTAPIs\\OnlineStoreAPIs\\Controllers\\AdminInfoController.cs",
+              "RelativeToolTip": "Controllers\\AdminInfoController.cs",
+              "ViewState": "AgIAACkAAAAAAAAAAAAAADcAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-07T04:10:00.662Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "OrdersRepo.cs",
+              "DocumentMoniker": "C:\\Users\\Elalamia\\Desktop\\Souq\\store-RESTAPIs\\StoreBusinessLayer\\OrdersServices\\OrdersRepo.cs",
+              "RelativeDocumentMoniker": "..\\StoreBusinessLayer\\OrdersServices\\OrdersRepo.cs",
+              "ToolTip": "C:\\Users\\Elalamia\\Desktop\\Souq\\store-RESTAPIs\\StoreBusinessLayer\\OrdersServices\\OrdersRepo.cs",
+              "RelativeToolTip": "..\\StoreBusinessLayer\\OrdersServices\\OrdersRepo.cs",
+              "ViewState": "AgIAABIAAAAAAAAAAAAAAJMAAAAvAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-07T04:07:31.481Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "OrdersController.cs",
+              "DocumentMoniker": "C:\\Users\\Elalamia\\Desktop\\Souq\\store-RESTAPIs\\OnlineStoreAPIs\\Controllers\\OrdersController.cs",
+              "RelativeDocumentMoniker": "Controllers\\OrdersController.cs",
+              "ToolTip": "C:\\Users\\Elalamia\\Desktop\\Souq\\store-RESTAPIs\\OnlineStoreAPIs\\Controllers\\OrdersController.cs",
+              "RelativeToolTip": "Controllers\\OrdersController.cs",
+              "ViewState": "AgIAAI8AAAAAAAAAAAAAAKQAAAA0AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-06T20:19:30.049Z"
             }
           ]
         }

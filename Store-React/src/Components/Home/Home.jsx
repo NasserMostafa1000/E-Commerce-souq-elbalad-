@@ -3,7 +3,7 @@ import { Helmet } from "react-helmet";
 import { useNavigate } from "react-router-dom";
 import NavBar from "./Nav";
 import ProductItem from "../Products/ProductItem.jsx";
-import API_BASE_URL from "../Constant.js";
+import API_BASE_URL, { SiteName } from "../Constant.js";
 import CategoryItems from "./CategoryItems.jsx";
 import "../../Styles/Home.css";
 import { getRoleFromToken } from "../utils.js";
@@ -30,7 +30,7 @@ export default function Home() {
     setloadingProducts(true); // هذه صح
     try {
       const response = await fetch(
-        `${API_BASE_URL}Product/GetAllProductsWithLimit?page=${ProductsPage}&limit=5`
+        `${API_BASE_URL}Product/GetAllProductsWithLimit?page=${ProductsPage}&limit=10`
       );
       if (!response.ok) throw new Error("Network error");
 
@@ -188,15 +188,15 @@ export default function Home() {
   return (
     <div>
       <Helmet>
-        <title>الصفحه الرئيسيه - سوق البلد</title>
+        <title>الصفحه الرئيسيه - {SiteName} </title>
         <meta
           name="description"
-          content="في سوق البلد يمكنك تسوق منتجات بأفضل جوده وأفضل ماركات عالميه يتحدث عنها البشر , مع خصومات تصل الي خمسون بالمائة"
+          content="   يمكنك تسوق منتجات بأفضل جوده وأفضل ماركات عالميه يتحدث عنها البشر , مع خصومات تصل الي خمسون بالمائة"
         />
       </Helmet>
       <NavBar />
       <img
-        src="/ProjectImages/Discounts.jpeg"
+        src="/ProjectImages/Discounts.jpg"
         alt="Discounts"
         style={{ width: "100%", height: "40vh" }}
       />
@@ -248,7 +248,7 @@ export default function Home() {
 
       <CategoryItems />
 
-      <h1 className="discount-title"> منتجات سوق البلد </h1>
+      <h1 className="discount-title"> منتجات {SiteName} </h1>
 
       {products.length === 0 && LoadingProducts ? (
         <p style={{ textAlign: "center" }}>جارٍ تحميل المنتجات ...</p>

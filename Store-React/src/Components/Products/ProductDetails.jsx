@@ -1,7 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { Helmet } from "react-helmet";
 import { useLocation, useNavigate, useParams } from "react-router-dom";
-import API_BASE_URL, { ServerPath } from "../../Components/Constant.js";
+import API_BASE_URL, {
+  ServerPath,
+  SiteName,
+} from "../../Components/Constant.js";
 import "../../Styles/productDetails.css";
 import "../../Styles/BtnAddToCart.css";
 
@@ -25,15 +28,6 @@ export default function ProductDetails() {
   const [Quantity, setQuantity] = useState(1);
   const [message, setMessage] = useState("");
 
-  useEffect(() => {
-    const middleY = window.innerHeight / 2;
-    window.scrollTo({
-      top: middleY,
-      behavior: "smooth",
-    });
-  }, []);
-
-  // جلب بيانات المنتج إذا لم يتم تمريرها عبر location.state
   useEffect(() => {
     if (!product) {
       const fetchProduct = async () => {
@@ -59,7 +53,7 @@ export default function ProductDetails() {
       setImg(product?.productImage || "");
       setLoading(false);
     }
-  }, [id, product]);
+  }, []);
   const GetDetailsOfCurrentSizeAndColor = async () => {
     if (!product) return;
     setLoading(true);
@@ -178,6 +172,13 @@ export default function ProductDetails() {
     }
   }, [CurrentSize, CurrentColor]);
 
+  useEffect(() => {
+    const middleY = window.innerHeight / 2;
+    window.scrollTo({
+      top: middleY + 500,
+      behavior: "smooth",
+    });
+  });
   if (loading) return <div>جاري التحميل...</div>;
 
   const availability = (
@@ -198,42 +199,53 @@ export default function ProductDetails() {
   return (
     <div className="product-details-wrapper">
       <Helmet>
-        <title>{product?.productName || "منتج"} | سوق البلد</title>
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org/",
+            "@type": "Product",
+            name: product?.productName,
+            image: [`${ServerPath}${Img}`],
+            description: product?.moreDetails,
+            sku: product?.productId,
+            offers: {
+              "@type": "Offer",
+              url: window.location.href,
+              priceCurrency: "EGP",
+              price:
+                product?.discountPercentage === 0
+                  ? product?.productPrice
+                  : product?.priceAfterDiscount,
+              availability:
+                availableQuantity > 0
+                  ? "https://schema.org/InStock"
+                  : "https://schema.org/OutOfStock",
+            },
+          })}
+        </script>
+
+        <title>
+          {product?.productName || "منتج"} | {SiteName}
+        </title>
         <meta
           name="description"
-          content={`تفاصيل المنتج ${
-            product?.productName || ""
-          } مع معلومات الكمية والتفاصيل الأخرى.`}
+          content={`${product?.productName} - ${product?.moreDetails}. متاح الآن على ${SiteName}. اكتشف المزيد من المنتجات المميزة بأفضل الأسعار.`}
         />
-        {/* Open Graph meta tags */}
-        <meta property="og:title" content={product?.productName || "منتج"} />
-        <meta
-          property="og:description"
-          content={`تفاصيل المنتج ${
-            product?.productName || ""
-          } مع معلومات الكمية والتفاصيل الأخرى.`}
-        />
-        <meta
-          property="og:image"
-          content={ServerPath + Img} // تأكد من أن الرابط صحيح للصورة
-        />
-        <meta property="og:url" content={window.location.href} />
-        <meta property="og:type" content="product" />
 
-        {/* Twitter meta tags */}
-        <meta name="twitter:title" content={product?.productName || "منتج"} />
-        <meta
-          name="twitter:description"
-          content={`تفاصيل المنتج ${
-            product?.productName || ""
-          } مع معلومات الكمية والتفاصيل الأخرى.`}
-        />
-        <meta
-          name="twitter:image"
-          content={ServerPath + Img} // تأكد من أن الرابط صحيح للصورة
-        />
+        {/* Open Graph */}
+        <meta property="og:type" content="product" />
+        <meta property="og:title" content={product?.productName} />
+        <meta property="og:description" content={product?.moreDetails} />
+        <meta property="og:image" content={`${ServerPath}${Img}`} />
+        <meta property="og:url" content={window.location.href} />
+        <meta property="og:site_name" content={SiteName} />
+
+        {/* Twitter */}
         <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={product?.productName} />
+        <meta name="twitter:description" content={product?.moreDetails} />
+        <meta name="twitter:image" content={`${ServerPath}${Img}`} />
       </Helmet>
+
       <NavBar />
       {availableQuantity > 0 && (
         <>
@@ -257,7 +269,7 @@ export default function ProductDetails() {
       </div>
 
       <div className="product-info-wrapper">
-        <h2>اسم المنتج: {product?.productName}</h2>
+        <h2> {product?.productName}</h2>
         <span style={{ color: "black" }}>
           سعر المنتج:{" "}
           {product?.discountPercentage === 0
@@ -267,6 +279,10 @@ export default function ProductDetails() {
         </span>
         {availability}
         <div className="product-info-text">
+          <p style={{ color: "red" }}>
+            قم بتحديد الكميه والمقاس (ان وجد) قبل اتمام الشراء او الاضافه الي
+            السله{" "}
+          </p>
           <div>
             اللون:
             {Colors.length === 1 ? (
@@ -308,7 +324,7 @@ export default function ProductDetails() {
             </div>
           )}
           <div>
-            الكمية:
+            الكميه :
             <input
               type="number"
               min="1"

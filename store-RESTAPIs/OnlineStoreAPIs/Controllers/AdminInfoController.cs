@@ -19,7 +19,7 @@ namespace OnlineStoreAPIs.Controllers
         [HttpGet("GetShipPriceAndTransactionNumber")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status401Unauthorized)]
-        [Authorize(Roles = "User")]
+        [Authorize(Roles = "User,Manager,Shipping Man")]
         public async Task<ActionResult> ShipPriceAndTransactionNumber(string Governorate)
         {
             try
@@ -34,6 +34,7 @@ namespace OnlineStoreAPIs.Controllers
         }
         [HttpGet("get-admin-info")]
         [ProducesResponseType(StatusCodes.Status200OK)]
+
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult> GetAdminInfo()
         {

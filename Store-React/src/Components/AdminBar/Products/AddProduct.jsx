@@ -120,7 +120,7 @@ export default function AddProduct() {
             onChange={(e) => setProductName(e.target.value)}
             required
             disabled={loading}
-            style={{ width: "100%", padding: "8px" }}
+            style={{ width: "100%", padding: "8px", backgroundColor: "white" }}
             placeholder="أدخل اسم المنتج"
           />
         </div>

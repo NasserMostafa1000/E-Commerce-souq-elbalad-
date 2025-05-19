@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import "../../Styles/Signup.css";
-import API_BASE_URL from "../Constant";
+import API_BASE_URL, { SiteName } from "../Constant";
 import { Helmet } from "react-helmet"; // تأكد من تثبيت react-helmet
 import WebSiteLogo from "../../../public/WebsiteLogo/WebsiteLogo.jsx";
 
@@ -80,16 +80,13 @@ export default function Signup() {
   return (
     <div className="signup-container">
       <Helmet>
-        <title>انشاء حساب|سوق البلد</title>
-        <meta
-          name="description"
-          content="انشاء حساب في سوق البلد للتمتع بتجربة تسوق مميزة."
-        />
+        <title>انشاء حساب|{SiteName} </title>
+        <meta name="description" content="انشاء حساب في متجرنا  الالكتروني" />
       </Helmet>
       <div>
         <WebSiteLogo width={200} height={100} />
       </div>
-     <h1>إنشاء حساب</h1>
+      <h1>إنشاء حساب</h1>
       {message && <div className={`message ${messageType}`}>{message}</div>}
       <form onSubmit={handleSubmit}>
         <input

@@ -145,7 +145,7 @@ namespace StoreBusinessLayer.Orders
                 .Select(O => new OrdersDtos.ClientOrders.GetOrdersByClientIdReq
                 {
                     OrderId = O.OrderId,
-                    TotalAmount = O.TotalAmount+O.ShippingCoast,
+                    TotalAmount = O.TotalAmount,
                     OrderStatus = O.OrderStatusId.ToString(), 
                     ShippingCoast=O.ShippingCoast,
                     RejectionReason = O.RejectionReason,

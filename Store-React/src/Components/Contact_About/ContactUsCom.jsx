@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
-import API_BASE_URL from "../Constant"; // تأكد من ضبط المسار الصحيح
-import "../../Styles/ContactUs.css"; // ملف التنسيق الخاص بالمكون
 import { FaWhatsapp, FaPhone, FaEnvelope } from "react-icons/fa";
 import { Helmet } from "react-helmet";
+import "../../Styles/ContactUs.css";
+import API_BASE_URL from "../Constant";
 
 export default function ContactUsCom() {
   const [adminInfo, setAdminInfo] = useState([]);
@@ -10,22 +10,19 @@ export default function ContactUsCom() {
   const [error, setError] = useState("");
 
   useEffect(() => {
-    async function fetchAdminInfo() {
+    const fetchAdminInfo = async () => {
       try {
         const token = sessionStorage.getItem("token");
         const response = await fetch(
           `${API_BASE_URL}AdminInfo/get-admin-info`,
           {
-            method: "GET",
             headers: {
               "Content-Type": "application/json",
               Authorization: `Bearer ${token}`,
             },
           }
         );
-        if (!response.ok) {
-          throw new Error("فشل في جلب بيانات الإدارة");
-        }
+        if (!response.ok) throw new Error("فشل تحميل بيانات التواصل");
         const data = await response.json();
         setAdminInfo(data);
       } catch (err) {
@@ -33,86 +30,77 @@ export default function ContactUsCom() {
       } finally {
         setLoading(false);
       }
-    }
+    };
+
     fetchAdminInfo();
   }, []);
 
   return (
-    <div className="about-contact-container">
+    <div className="contact-wrapper">
       <Helmet>
-        <title>صفحه التواصل - سوق البلد </title>
+        <title>تواصل معنا - سوق البلد</title>
         <meta
           name="description"
-          content="صفحه التواصل لموقع سوق البلد حيث يمكن للعملاء التواصل مع مالكين سوق البلد للرد علي كل استفسارتهم"
+          content="تواصل معنا في سوق البلد - نحن هنا للإجابة على جميع استفساراتك."
         />
       </Helmet>
-      <section className="contact-section">
-        <h2 className="contact-title">تواصل معنا</h2>
-        {loading ? (
-          <div className="contact-loading">جاري التحميل...</div>
-        ) : error ? (
-          <div className="contact-error">خطأ: {error}</div>
-        ) : (
-          <div className="contact-cards">
-            {adminInfo.map((info, index) => (
-              <div key={index} className="contact-card">
-                <p>
-                  <strong>واتساب:</strong>{" "}
-                  {info.whatsAppNumber ? (
-                    <a
-                      href={`https://wa.me/${info.whatsAppNumber.replace(
-                        /[^0-9]/g,
-                        ""
-                      )}`}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="whatsapp-link"
-                    >
-                      <FaWhatsapp size={24} style={{ marginRight: "8px" }} />
-                      ارسل لنا رساله
-                    </a>
-                  ) : (
-                    "غير متوفر"
-                  )}
-                </p>
-                <p>
-                  <strong>هاتف:</strong>{" "}
-                  {info.callNumber ? (
-                    <a
-                      href={`tel:${info.callNumber.replace(/[^0-9]/g, "")}`}
-                      className="phone-link"
-                    >
-                      <FaPhone size={24} style={{ marginRight: "8px" }} />
-                      اتصل الأن
-                    </a>
-                  ) : (
-                    "غير متوفر"
-                  )}
-                </p>
-                <p>
-                  {info.email}
-                  {info.email ? (
-                    <a href={`mailto:${info.email}`} className="email-link">
-                      <FaEnvelope
-                        size={24}
-                        style={{ marginRight: "8px", direction: "ltr" }}
-                      />
-                    </a>
-                  ) : (
-                    "غير متوفر"
-                  )}
-                  <strong style={{ direction: "ltr" }}>
-                    :البريد الالكتروني
-                  </strong>{" "}
-                </p>
+
+      <h2 className="contact-heading">📬 تواصل معنا</h2>
+
+      {loading ? (
+        <div className="loading">⏳ جاري التحميل...</div>
+      ) : error ? (
+        <div className="error">❌ {error}</div>
+      ) : (
+        <div className="contact-grid">
+          {adminInfo.map((info, i) => (
+            <div className="contact-card-modern" key={i}>
+              <h3>فريق الدعم</h3>
+
+              <div className="contact-item">
+                <FaWhatsapp className="icon whatsapp" />
+                {info.whatsAppNumber ? (
+                  <a
+                    href={`https://wa.me/${info.whatsAppNumber}`}
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    واتساب: {info.whatsAppNumber}
+                  </a>
+                ) : (
+                  "واتساب غير متاح"
+                )}
               </div>
-            ))}
-          </div>
-        )}
-        <footer className="contact-footer">
-          حقوق النشر © 2025 - جميع الحقوق محفوظة
-        </footer>
-      </section>
+
+              <div className="contact-item">
+                <FaPhone className="icon phone" />
+                {info.callNumber ? (
+                  <a href={`tel:${info.callNumber}`}>
+                    اتصل بنا: {info.callNumber}
+                  </a>
+                ) : (
+                  "رقم الهاتف غير متاح"
+                )}
+              </div>
+
+              <div className="contact-item">
+                <FaEnvelope className="icon email" />
+                {info.email ? (
+                  <a href={`mailto:${info.email}`}>
+                    بريد إلكتروني: {info.email}
+                  </a>
+                ) : (
+                  "البريد غير متاح"
+                )}
+              </div>
+            </div>
+          ))}
+        </div>
+      )}
+
+      <footer className="contact-footer-modern">
+        &copy; 2025 سوق البلد - جميع الحقوق محفوظة.
+      </footer>
     </div>
   );
 }

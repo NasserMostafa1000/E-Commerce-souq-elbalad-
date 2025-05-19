@@ -6,6 +6,7 @@ import { Howl } from "howler";
 import { Link } from "react-router-dom";
 import {
   getRoleFromToken,
+  playNotificationSound,
   SendSignalMessageForOrders,
   startListeningToMessages,
 } from "../../utils";
@@ -32,21 +33,6 @@ export default function Orders() {
     "تم الرفض",
     "تم الإرجاع",
   ];
-  const playNotificationSound = () => {
-    const sound = new Howl({
-      src: ["/Sounds/notification.mp3"],
-      volume: 1.0,
-      html5: true,
-      onplayerror: function (id, error) {
-        console.error("❌ خطأ في تشغيل الصوت:", error);
-        sound.once("unlock", () => {
-          sound.play();
-        });
-      },
-    });
-
-    sound.play();
-  };
 
   useEffect(() => {
     const Role = getRoleFromToken(sessionStorage.getItem("token"));
@@ -374,7 +360,7 @@ export default function Orders() {
                 <td>{order.address}</td>
                 <td>{order.clientPhone}</td>
                 <td>{order.shippingCoast}</td>
-                <td>{order.totalAmount + order.shippingCoast}</td>
+                <td>{order.totalAmount}</td>
                 <td>{order.paymentMethod}</td>
                 <td>
                   {order.transactionNumber

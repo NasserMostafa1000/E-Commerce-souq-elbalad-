@@ -12,7 +12,7 @@
           "Microsoft.EntityFrameworkCore.SqlServer": "9.0.1",
           "Microsoft.EntityFrameworkCore.Tools": "9.0.1",
           "Microsoft.Extensions.Configuration.Json": "9.0.1",
-          "StoreBusinessLayer": "1.0.0",
+          "StoreServices": "1.0.0",
           "Swashbuckle.AspNetCore": "6.4.0"
         },
         "runtime": {
@@ -1260,29 +1260,29 @@
           }
         }
       },
-      "StoreBusinessLayer/1.0.0": {
-        "dependencies": {
-          "Google.Apis.Auth": "1.69.0",
-          "Microsoft.AspNetCore.SignalR.Core": "1.2.0",
-          "Microsoft.EntityFrameworkCore.SqlServer": "9.0.1",
-          "Microsoft.Extensions.Configuration.Json": "9.0.1",
-          "StoreDataAccessLayer": "1.0.0"
-        },
-        "runtime": {
-          "StoreBusinessLayer.dll": {
-            "assemblyVersion": "1.0.0",
-            "fileVersion": "1.0.0.0"
-          }
-        }
-      },
-      "StoreDataAccessLayer/1.0.0": {
+      "StoreDataLayer/1.0.0": {
         "dependencies": {
           "Microsoft.EntityFrameworkCore.SqlServer": "9.0.1",
           "Microsoft.Extensions.Configuration": "9.0.1",
           "Microsoft.Extensions.Configuration.Json": "9.0.1"
         },
         "runtime": {
-          "StoreDataAccessLayer.dll": {
+          "StoreDataLayer.dll": {
+            "assemblyVersion": "1.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      },
+      "StoreServices/1.0.0": {
+        "dependencies": {
+          "Google.Apis.Auth": "1.69.0",
+          "Microsoft.AspNetCore.SignalR.Core": "1.2.0",
+          "Microsoft.EntityFrameworkCore.SqlServer": "9.0.1",
+          "Microsoft.Extensions.Configuration.Json": "9.0.1",
+          "StoreDataLayer": "1.0.0"
+        },
+        "runtime": {
+          "StoreServices.dll": {
             "assemblyVersion": "1.0.0",
             "fileVersion": "1.0.0.0"
           }
@@ -1996,12 +1996,12 @@
       "path": "system.windows.extensions/6.0.0",
       "hashPath": "system.windows.extensions.6.0.0.nupkg.sha512"
     },
-    "StoreBusinessLayer/1.0.0": {
+    "StoreDataLayer/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
     },
-    "StoreDataAccessLayer/1.0.0": {
+    "StoreServices/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

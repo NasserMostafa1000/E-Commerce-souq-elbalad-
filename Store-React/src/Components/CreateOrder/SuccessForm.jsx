@@ -17,9 +17,6 @@ const SuccessForm = ({ message, onClose }) => {
           <button onClick={goToOrders} className="btn orders-btn">
             الذهاب إلى طلباتي
           </button>
-          <button onClick={onClose} className="btn cancel-btn">
-            إلغاء
-          </button>
         </div>
       </div>
     </div>

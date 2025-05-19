@@ -1,9 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { Helmet } from "react-helmet"; // استيراد Helmet لضبط SEO
 import { useLocation, useNavigate } from "react-router-dom";
-import "../../Styles/PurchaseOperationDetails.css";
-import getDeliveryDate, { SendSignalMessageForOrders } from "../utils.js";
+import getDeliveryDate, {
+  playNotificationSound,
+  SendSignalMessageForOrders,
+  startConnection,
+} from "../utils.js";
 import AddressSelector from "./AddressSelector.jsx";
+import "../../Styles/PurchaseOperationDetails.css";
 import PhoneNumberModal from "./PhoneModel.jsx";
 import OrderSummary from "./PurchaseSummray.jsx";
 import OrderActions from "./PurchasesAction.jsx";
@@ -16,13 +20,16 @@ import {
   PostListOfOrdersDetails,
 } from "./api.js";
 import SuccessForm from "./SuccessForm.jsx";
+import { SiteName } from "../Constant.js";
+
 export default function PurchaseOperationDetails() {
+  const [ShipPrice, SetShiPrice] = useState(0);
+  const [paymentMethod, setPaymentMethod] = useState("cod");
+  const [UserTransactionNum, SetUserTransactionNum] = useState("");
   const [addresses, setAddresses] = useState({});
   const [selectedAddressId, setSelectedAddressId] = useState("");
   const [showAddAddressModal, setShowAddAddressModal] = useState(false);
   const [AdminTransactionNum, SetAdminTransactionNum] = useState("");
-  const [UserTransactionNum, SetUserTransactionNum] = useState("");
-  const [ShipPrice, SetShiPrice] = useState(0);
   const [clientPhone, setClientPhone] = useState("");
   const [showPhoneModal, setShowPhoneModal] = useState(false);
   const [newPhoneNumber, setNewPhoneNumber] = useState("");
@@ -32,7 +39,6 @@ export default function PurchaseOperationDetails() {
     city: "",
     street: "",
   });
-  const [paymentMethod, setPaymentMethod] = useState("online"); // "online" أو "cod"
   const [loading, setLoading] = useState(true);
   const [purchaseLoading, setPurchaseLoading] = useState(false);
   const [message, setMessage] = useState(""); // رسالة الحالة أو الخطأ
@@ -44,7 +50,14 @@ export default function PurchaseOperationDetails() {
     (!UserTransactionNum && paymentMethod === "online") ||
     (!transactionImage && paymentMethod === "online") ||
     Object.keys(addresses).length === 0;
+  const productPrice = Array.isArray(Products)
+    ? Products.reduce((sum, p) => sum + p.unitPrice * p.quantity, 0)
+    : Products.unitPrice * Products.quantity;
 
+  const finalPrice =
+    paymentMethod === "cod"
+      ? productPrice + ShipPrice + 30
+      : productPrice + ShipPrice;
   useEffect(() => {
     const _fetchAddresses = async () => {
       try {
@@ -109,17 +122,10 @@ export default function PurchaseOperationDetails() {
   async function HandleBuyClick() {
     setPurchaseLoading(true);
     const token = sessionStorage.getItem("token");
-    const totalPrice =
-      Array.isArray(Products) && Products.length > 0
-        ? Products.reduce(
-            (sum, product) => sum + product.unitPrice * product.quantity,
-            0
-          )
-        : Products.unitPrice * Products.quantity;
 
     const orderData = {
       address: addresses[selectedAddressId],
-      totalPrice: totalPrice,
+      totalPrice: finalPrice,
       ShippingCoast: ShipPrice,
       paymentMethodId: paymentMethod === "cod" ? 2 : 1,
       transactionNumber:
@@ -128,7 +134,9 @@ export default function PurchaseOperationDetails() {
 
     try {
       const OrderId = await postOrder(token, orderData);
+      await startConnection();
       await SendSignalMessageForOrders("new Order" + OrderId);
+
       if (Array.isArray(Products) && Products.length > 1) {
         await PostListOfOrdersDetails(OrderId, token, Products);
       } else {
@@ -137,6 +145,7 @@ export default function PurchaseOperationDetails() {
           await postOrderDetails(token, OrderId, orderDetails);
         }
       }
+      playNotificationSound();
       setMessage(
         "✅ تم الطلب بنجاح! يمكنك متابعة طلبك في قسم طلباتي، ولأي خدمة أخرى يمكنك التواصل مع الدعم الفني من خلال قسم تواصل معنا"
       );
@@ -153,16 +162,15 @@ export default function PurchaseOperationDetails() {
   if (loading) return <div>جاري التحميل...</div>;
 
   return (
-    <div className="container purchase-container" style={{ width: "100%" }}>
+    <div className="purchase-container" dir="rtl">
       <Helmet>
-        <title>تفاصيل الطلب | سوق البلد</title>
+        <title>تفاصيل الطلب | {SiteName} </title>
         <meta
           name="description"
-          content="تفاصيل الطلب في موقع سوق البلد. تابع طلبك وتواصل مع الدعم الفني."
+          content="تفاصيل الطلب في موقع تابع طلبك وتواصل مع الدعم الفني."
         />
       </Helmet>
 
-      {/* عرض نموذج النجاح إذا كانت الرسالة تظهر */}
       {showSuccessForm && (
         <SuccessForm
           message={message}
@@ -170,7 +178,6 @@ export default function PurchaseOperationDetails() {
         />
       )}
 
-      {/* عرض رسالة الحالة أو الخطأ في أعلى الصفحة */}
       {message && !showSuccessForm && (
         <div
           className={`global-message ${
@@ -194,31 +201,34 @@ export default function PurchaseOperationDetails() {
         setAddresses={setAddresses}
       />
 
-      <a
-        onClick={() => setShowPhoneModal(true)}
-        style={{
-          color: "white",
-          textDecoration: "underline",
-          cursor: "pointer",
-        }}
-      >
-        هاتفك للاتصال: {clientPhone}
-      </a>
+      <div className="invoice-row">
+        <span className="invoice-label">هاتفك للاتصال:</span>
+        <a
+          onClick={() => setShowPhoneModal(true)}
+          className="invoice-value link"
+        >
+          {clientPhone}
+        </a>
+      </div>
 
-      <h2 className="highlighted-title">تفاصيل الشحنة</h2>
+      <h3 className="section-title">تفاصيل الشحنة</h3>
       <OrderSummary Products={Products} ShipPrice={ShipPrice} />
 
-      <h4>شحن إلى: {addresses[selectedAddressId]}</h4>
-      <h4>
-        الموعد النهائي للاستلام: <strong>{getDeliveryDate()}</strong>
-      </h4>
+      <div className="invoice-row">
+        <span className="invoice-label">شحن إلى:</span>
+        <span className="invoice-value">{addresses[selectedAddressId]}</span>
+      </div>
 
-      <div className="payment-method-selection">
-        <h3 className="highlighted-title">طرق الدفع</h3>
-        <label>
+      <div className="invoice-row">
+        <span className="invoice-label">الموعد النهائي للاستلام:</span>
+        <span className="invoice-value">{getDeliveryDate()}</span>
+      </div>
+
+      <div className="payment-methods">
+        <h3 className="section-title">طرق الدفع</h3>
+        <label className="payment-option">
           <input
             type="radio"
-            style={{ direction: "ltr" }}
             value="online"
             checked={paymentMethod === "online"}
             onChange={() => setPaymentMethod("online")}
@@ -226,29 +236,12 @@ export default function PurchaseOperationDetails() {
           الدفع الإلكتروني
         </label>
         {paymentMethod === "online" && (
-          <div className="payment-icons">
-            <img
-              src="/Icons\فودافون.ico"
-              alt="Vodafone Cash"
-              title="Vodafone Cash"
-            />
-            <img
-              src="/Icons\ايقونه-اتصالات.ico"
-              alt="Etisalat Cash"
-              title="Etisalat Cash"
-            />
-            <img
-              src="/Icons\ايقونه-اورانج.ico"
-              alt="Orange Cash"
-              title="Orange Cash"
-            />
-            <div className="transaction-info"></div>
-            <strong>حول الفلوس هنا {AdminTransactionNum}</strong>
+          <div className="payment-details">
+            <strong>حول الفلوس هنا: {AdminTransactionNum}</strong>
           </div>
         )}
-        <label>
+        <label className="payment-option">
           <input
-            style={{ direction: "ltr" }}
             type="radio"
             value="cod"
             checked={paymentMethod === "cod"}
@@ -257,12 +250,17 @@ export default function PurchaseOperationDetails() {
           الدفع عند الاستلام
         </label>
         {paymentMethod === "cod" && (
-          <div className="payment-icons">
+          <div className="payment-details">
             <img
-              src="/Icons\الدفع-عند-الاستلام.ico"
+              src="/Icons/الدفع-عند-الاستلام.ico"
               alt="Cash on Delivery"
               title="Cash on Delivery"
+              className="cod-icon"
             />
+            <div className="tax-row">
+              <span>ضريبة الدفع عند الاستلام:</span>
+              <strong>٣٠ جنيه</strong>
+            </div>
           </div>
         )}
       </div>
@@ -274,18 +272,17 @@ export default function PurchaseOperationDetails() {
           setTransactionImage={setTransactionImage}
         />
       )}
+
       {paymentMethod === "online" && (
-        <>
-          <h2 style={{ color: "red" }}>ملحوظة</h2>
+        <div className="note">
+          <h2>ملحوظة</h2>
           <p>
             يجب تحويل المبلغ المستحق بالكامل إلى هذا الرقم قبل الضغط على زر شراء{" "}
-            <span>
-              <strong>" {AdminTransactionNum} "</strong>
-            </span>{" "}
-            وإن كان المبلغ المستحق أقل أو أكثر من المطلوب فسيتم رد الأموال
-            تلقائيًا على نفس الرقم في غضون 24 ساعة.
+            <strong>{AdminTransactionNum}</strong> وإن كان المبلغ المستحق أقل أو
+            أكثر من المطلوب فسيتم رد الأموال تلقائيًا على نفس الرقم في غضون 24
+            ساعة.
           </p>
-        </>
+        </div>
       )}
 
       {showPhoneModal && (
@@ -297,14 +294,18 @@ export default function PurchaseOperationDetails() {
         />
       )}
 
+      <div className="final-price">
+        السعر النهائي:
+        <strong>{finalPrice} جنيه</strong>
+      </div>
+
       {!isBuyDisabled && (
         <button
           className="save-btn"
           onClick={HandleBuyClick}
           disabled={isBuyDisabled}
-          style={{ background: isBuyDisabled ? "grey" : "green" }}
         >
-          شراء
+          اتمام
         </button>
       )}
 

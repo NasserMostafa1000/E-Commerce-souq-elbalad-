@@ -231,7 +231,7 @@ namespace StoreBusinessLayer.Users
         public async Task<List<UsersDtos.GetManagersReq>> GetEmployees()
         {
             var managers = await _dbContext.Users.Include(u => u.Role)
-                .Where(user =>  user.RoleId != 1)
+                .Where(user =>  user.RoleId != 1&&user.RoleId!=3)
                 .Select(user => new UsersDtos.GetManagersReq
                 {
                     Email = user.EmailOrAuthId,

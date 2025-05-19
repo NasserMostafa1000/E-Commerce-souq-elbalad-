@@ -5002,11 +5002,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Elalamia\\Desktop\\Souq\\store-APIs\\StoreDataAccessLayer\\StoreDataLayer.csproj",
+      "projectUniqueName": "C:\\Users\\Elalamia\\Desktop\\Souq\\store-RESTAPIs\\StoreDataAccessLayer\\StoreDataLayer.csproj",
       "projectName": "StoreDataLayer",
-      "projectPath": "C:\\Users\\Elalamia\\Desktop\\Souq\\store-APIs\\StoreDataAccessLayer\\StoreDataLayer.csproj",
+      "projectPath": "C:\\Users\\Elalamia\\Desktop\\Souq\\store-RESTAPIs\\StoreDataAccessLayer\\StoreDataLayer.csproj",
       "packagesPath": "C:\\Users\\Elalamia\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Elalamia\\Desktop\\Souq\\store-APIs\\StoreDataAccessLayer\\obj\\",
+      "outputPath": "C:\\Users\\Elalamia\\Desktop\\Souq\\store-RESTAPIs\\StoreDataAccessLayer\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

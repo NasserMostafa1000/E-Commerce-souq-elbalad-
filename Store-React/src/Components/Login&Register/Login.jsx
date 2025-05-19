@@ -5,7 +5,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Helmet } from "react-helmet";
 import { Howl } from "howler"; // استيراد مكتبة Howler.js
 import "../../Styles/Login.css";
-import API_BASE_URL from "../Constant.js";
+import API_BASE_URL, { SiteName } from "../Constant.js";
 import WebSiteLogo from "../../../public/WebsiteLogo/WebsiteLogo.jsx";
 import { getRoleFromToken } from "../../Components/utils.js"; // التأكد من أنك قد وضعت هذه الميثود في ملف utils
 
@@ -84,10 +84,10 @@ export default function Login() {
   return (
     <div className="login-container">
       <Helmet>
-        <title>تسجيل الدخول |سوق البلد</title>
+        <title>تسجيل الدخول |{SiteName} </title>
         <meta
           name="description"
-          content="تسجيل الدخول إلى سوق البلد للتمتع بتجربة تسوق مميزة."
+          content="سجل دخولك الان لكي تتمكن من تجربه كامله للتسوق من منزلك من خلال متجرنا الاكتروني"
         />
       </Helmet>
       <div>

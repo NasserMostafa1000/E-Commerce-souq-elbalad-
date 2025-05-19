@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "4XmV04vSFKe34sr4MffkUZ0R7xU+wrUIT9Bqwn0GANQ=",
+  "Hash": "Wq/qahJIh+zkep9JiDPSKhyQAa/lmxOcSZhd2yqV9z4=",
   "Source": "OnlineStoreAPIs",
   "BasePath": "_content/OnlineStoreAPIs",
   "Mode": "Default",
@@ -10,7 +10,7 @@
     {
       "Name": "OnlineStoreAPIs\\wwwroot",
       "Source": "OnlineStoreAPIs",
-      "ContentRoot": "C:\\Users\\Elalamia\\Desktop\\Souq\\store-asp.net\\OnlineStoreAPIs\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Elalamia\\Desktop\\Souq\\store-RESTAPIs\\OnlineStoreAPIs\\wwwroot\\",
       "BasePath": "_content/OnlineStoreAPIs",
       "Pattern": "**"
     }

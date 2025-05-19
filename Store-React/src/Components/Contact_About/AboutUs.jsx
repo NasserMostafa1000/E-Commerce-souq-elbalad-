@@ -1,5 +1,6 @@
 import React from "react";
 import { Helmet } from "react-helmet";
+import { SiteName } from "../Constant";
 
 export default function AboutUs() {
   return (
@@ -8,10 +9,10 @@ export default function AboutUs() {
       style={{ textAlign: "center" }}
     >
       <Helmet>
-        <title>من نحن - سوق البلد </title>
+        <title>من نحن -{SiteName}</title>
         <meta
           name="description"
-          content="صفحه من نحن لترد علي الاسئله الشائعه عن موقعنا ومتجرنا الالكتروني سوق البلد"
+          content="صفحه من نحن لترد علي الاسئله الشائعه عن موقعنا ومتجرنا الالكتروني  "
         />
       </Helmet>
       <h1 className="text-3xl font-bold text-center text-blue-600 mb-6">

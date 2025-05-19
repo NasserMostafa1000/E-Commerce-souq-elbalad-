@@ -35,7 +35,7 @@ export default function NavBar() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [cartCount, setCartCount] = useState(0);
   const [menuOpen, setMenuOpen] = useState(false);
-  const [isSubMenuOpen, setIsSubMenuOpen] = useState(false);
+  const [isSubMenuOpen, setIsSubMenuOpen] = useState(true);
   const navigate = useNavigate();
   const token = sessionStorage.getItem("token");
   const currentRole = getRoleFromToken(token);
@@ -122,7 +122,7 @@ export default function NavBar() {
                 }}
               >
                 <span style={{ marginRight: "8px" }}>
-                  مرحبا {GetUserNameFromToken(sessionStorage.getItem("token"))}
+                  {GetUserNameFromToken(sessionStorage.getItem("token"))}
                 </span>
                 <FiUser size={30} style={{ color: "gray" }} />
               </Link>
@@ -155,6 +155,7 @@ export default function NavBar() {
 
       {menuOpen && (
         <div className={`sidebar ${menuOpen ? "open" : ""}`}>
+          {GetUserNameFromToken(sessionStorage.getItem("token"))}
           <div className="flex justify-between items-center mb-4">
             <button
               onClick={() => setMenuOpen(false)}
@@ -365,7 +366,7 @@ export default function NavBar() {
                   </>
                 )}
 
-                {currentRole === "Shipping Manager" && (
+                {currentRole === "Shipping Man" && (
                   <>
                     <li>
                       <Link

@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import API_BASE_URL from "../Constant";
+import API_BASE_URL, { SiteName } from "../Constant";
 import { Link } from "react-router-dom";
 import "../../Styles/MyPurchases.css";
 import { Helmet } from "react-helmet"; // استيراد Helmet
@@ -71,10 +71,10 @@ export default function MyOrders() {
   return (
     <div className="orders-container">
       <Helmet>
-        <title>طلباتي | سوق البلد</title>
+        <title>طلباتي | {SiteName} </title>
         <meta
           name="description"
-          content="طلباتي التي قمت بشرائها وطلبها من موقع سوق البلد"
+          content="طلباتي التي قمت بشرائها وطلبها من موقع "
         />
       </Helmet>
       <h2>طلباتي</h2>

@@ -3,7 +3,7 @@ import { Helmet } from "react-helmet";
 import { useNavigate, useLocation } from "react-router-dom";
 import NavBar from "../Home/Nav.jsx";
 import "../../Styles/FindProducts.css";
-import API_BASE_URL, { ServerPath } from "../Constant.js";
+import API_BASE_URL, { ServerPath, SiteName } from "../Constant.js";
 import { FaEdit } from "react-icons/fa";
 import { getRoleFromToken } from "../utils.js";
 
@@ -48,7 +48,9 @@ export default function FindProducts() {
   return (
     <div>
       <Helmet>
-        <title>نتائج البحث عن '{Name}' | سوق البلد </title>
+        <title>
+          نتائج البحث عن '{Name}' | {SiteName}{" "}
+        </title>
         <meta
           name="description"
           content={`استكشف نتائج البحث لكلمة '${Name}' والعروض الحصرية في موقعنا.`}

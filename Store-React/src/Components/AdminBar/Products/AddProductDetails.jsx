@@ -141,7 +141,7 @@ export default function AddProductDetails() {
 
   // زر "إنهاء" ينقل المستخدم إلى صفحة أخرى (مثلاً قائمة المنتجات)
   const handleFinish = () => {
-    navigate("/"); // عدل المسار حسب متطلباتك
+    navigate(`/productDetails/${productId}`);
   };
 
   return (

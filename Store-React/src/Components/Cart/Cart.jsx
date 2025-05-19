@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { FiTrash2 } from "react-icons/fi";
-import API_BASE_URL, { ServerPath } from "../Constant.js";
+import API_BASE_URL, { ServerPath, SiteName } from "../Constant.js";
 import "../../Styles/Cart.css";
 import { useNavigate } from "react-router-dom";
 import { Helmet } from "react-helmet"; // استيراد Helmet
@@ -125,7 +125,7 @@ export default function Cart() {
   return (
     <div className="cart-container">
       <Helmet>
-        <title>سلة التسوق | سوق البلد</title>
+        <title>سلة التسوق | {SiteName}</title>
         <meta
           name="description"
           content="عرض تفاصيل السلة وإجمالي السعر للمنتجات المُختارة في الملف الشخصي"
@@ -145,9 +145,11 @@ export default function Cart() {
         </p>
       ) : (
         <div>
-          <button className="delete-all-btn" onClick={handleDeleteAllCart}>
-            حذف جميع المنتجات
-          </button>
+          {cartItems.length >= 1 && (
+            <button className="purchaseItem-btn" onClick={handleBuyAll}>
+              شراء الكل
+            </button>
+          )}
           <div className="cart-items">
             {cartItems.map((item, index) => (
               <div className="cart-item" key={index}>
@@ -183,11 +185,10 @@ export default function Cart() {
           </div>
         </div>
       )}
-      {cartItems.length >= 1 && (
-        <button className="purchaseItem-btn" onClick={handleBuyAll}>
-          شراء الكل
-        </button>
-      )}
+
+      <button className="delete-all-btn" onClick={handleDeleteAllCart}>
+        حذف جميع المنتجات
+      </button>
 
       {/* طبقة التحميل لتغطية الشاشة وتعطيل التفاعل */}
       {isLoading && (

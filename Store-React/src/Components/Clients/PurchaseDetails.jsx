@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
-import API_BASE_URL, { ServerPath } from "../Constant";
+import API_BASE_URL, { ServerPath, SiteName } from "../Constant";
 import "../../Styles/PurchaseDetail.css"; // تأكد من أن المسار صحيح لملف CSS
 import { Helmet } from "react-helmet"; // استيراد Helmet
 
@@ -52,10 +52,12 @@ export default function OrderDetail() {
   return (
     <div className="order-detail-container">
       <Helmet>
-        <title>تفاصيل الطلب رقم {orderId} | سوق البلد</title>
+        <title>
+          تفاصيل الطلب رقم {orderId} | {SiteName}{" "}
+        </title>
         <meta
           name="description"
-          content="طلباتي التي قمت بشرائها وطلبها من موقع سوق البلد"
+          content="طلباتك التي قمت بشرائها وطلبها من متجرنا "
         />
       </Helmet>
       <h2 className="title">تفاصيل الطلب رقم #{orderId}</h2>
@@ -63,9 +65,7 @@ export default function OrderDetail() {
         {orderDetails.map((detail, index) => (
           <div className="order-detail-card" key={index}>
             <img
-              src={
-                ServerPath + detail.imagePath
-              }
+              src={ServerPath + detail.imagePath}
               alt={detail.productName}
               className="product-image"
             />

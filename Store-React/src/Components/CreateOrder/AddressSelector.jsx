@@ -1,4 +1,3 @@
-import "../../styles/PurchaseOperationDetails.css"; // ✅ يخرج من مجلد Orders ثم من components ثم يدخل styles
 import { egyptianGovernorates } from "../../Components/utils";
 import { handleAddAddress } from "./api.js";
 
@@ -13,9 +12,9 @@ export default function AddressSelector({
   setAddresses,
 }) {
   const HandleSaveClick = async () => {
-    const token = sessionStorage.getItem("token"); // ✅ اجلب التوكن بشكل منفصل
+    const token = sessionStorage.getItem("token");
     if (!token) {
-      alert("لم يتم العثور على التوكن، الرجاء تسجيل الدخول."); // ✅ تحقق من وجود التوكن
+      alert("لم يتم العثور على التوكن، الرجاء تسجيل الدخول.");
       return;
     }
     try {
@@ -33,7 +32,6 @@ export default function AddressSelector({
       }));
 
       setSelectedAddressId(addressId);
-
       setShowAddAddressModal(false);
       setNewAddress({ governorate: "", city: "", street: "" });
     } catch (error) {
@@ -43,12 +41,12 @@ export default function AddressSelector({
   };
 
   return (
-    <>
-      <h4 style={{ color: "black" }}>العنوان المختار</h4>
+    <div className="space-y-4 p-4">
+      <h4 className="text-lg font-semibold text-gray-800">العنوان المختار</h4>
 
       {Object.keys(addresses).length > 0 ? (
         <select
-          className="select-box"
+          className="w-full rounded-lg border border-gray-300 px-4 py-2 text-right focus:border-blue-500 focus:outline-none"
           value={selectedAddressId}
           onChange={(e) => setSelectedAddressId(e.target.value)}
         >
@@ -59,75 +57,87 @@ export default function AddressSelector({
           ))}
         </select>
       ) : (
-        <p className="error-message">
-          👇لا توجد عنواين متاحة، قم بوضع عنوان الآن👇
-        </p>
+        <button className="text-red-500 text-sm">
+          👇 لا توجد عناوين متاحة، قم بإضافة عنوان الآن 👇
+        </button>
       )}
 
-      {/* ✅ زر إضافة عنوان جديد */}
       <div>
-        <a
+        <button
           href="#"
-          className="add-address-link"
-          style={{ color: "blue" }}
+          className="text-bold-600 hover:underline text-sm"
           onClick={(e) => {
             e.preventDefault();
             setShowAddAddressModal(true);
           }}
         >
           + أضف عنوانًا جديدًا
-        </a>
+        </button>
       </div>
 
-      {/* ✅ المودال يظهر هنا عند showAddAddressModal === true */}
       {showAddAddressModal && (
-        <div className="modal-overlay">
-          <div className="modal-content">
-            <h3>إضافة عنوان جديد</h3>
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50">
+          <div className="bg-white rounded-xl shadow-lg p-6 w-full max-w-md space-y-4">
+            <h3 className="text-lg font-bold text-gray-800 text-center">
+              إضافة عنوان جديد
+            </h3>
 
-            <label>المحافظة:</label>
-            <select
-              value={newAddress.governorate}
-              onChange={(e) =>
-                setNewAddress({
-                  ...newAddress,
-                  governorate: e.target.value,
-                })
-              }
-            >
-              <option value="">اختر محافظة</option>
-              {egyptianGovernorates.map((governorate, index) => (
-                <option key={index} value={governorate}>
-                  {governorate}
-                </option>
-              ))}
-            </select>
+            <div className="space-y-2">
+              <label className="block text-sm font-medium text-gray-700">
+                المحافظة:
+              </label>
+              <select
+                value={newAddress.governorate}
+                onChange={(e) =>
+                  setNewAddress({
+                    ...newAddress,
+                    governorate: e.target.value,
+                  })
+                }
+                className="w-full rounded-lg border border-gray-300 px-3 py-2 focus:border-blue-500 focus:outline-none"
+              >
+                <option value="">اختر محافظة</option>
+                {egyptianGovernorates.map((governorate, index) => (
+                  <option key={index} value={governorate}>
+                    {governorate}
+                  </option>
+                ))}
+              </select>
 
-            <label>المدينة:</label>
-            <input
-              type="text"
-              value={newAddress.city}
-              onChange={(e) =>
-                setNewAddress({ ...newAddress, city: e.target.value })
-              }
-            />
+              <label className="block text-sm font-medium text-gray-700">
+                المدينة:
+              </label>
+              <input
+                type="text"
+                value={newAddress.city}
+                onChange={(e) =>
+                  setNewAddress({ ...newAddress, city: e.target.value })
+                }
+                className="w-full rounded-lg border border-gray-300 px-3 py-2 focus:border-blue-500 focus:outline-none"
+              />
 
-            <label>الشارع:</label>
-            <input
-              type="text"
-              value={newAddress.street}
-              onChange={(e) =>
-                setNewAddress({ ...newAddress, street: e.target.value })
-              }
-            />
+              <label className="block text-sm font-medium text-gray-700">
+                الشارع:
+              </label>
+              <input
+                type="text"
+                value={newAddress.street}
+                onChange={(e) =>
+                  setNewAddress({ ...newAddress, street: e.target.value })
+                }
+                className="w-full rounded-lg border border-gray-300 px-3 py-2 focus:border-blue-500 focus:outline-none"
+              />
+            </div>
 
-            <div className="modal-actions">
-              <button className="save-btn" onClick={HandleSaveClick}>
+            <div className="flex justify-between space-x-2">
+              <button
+                className="flex-1 bg-blue-600 text-white rounded-lg py-2 hover:bg-blue-700 transition"
+                onClick={HandleSaveClick}
+              >
                 حفظ العنوان
               </button>
-
               <button
-                className="cancel-btn"
+                className="flex-1 bg-gray-300 text-gray-800 rounded-lg py-2 hover:bg-gray-400 transition"
                 onClick={() => setShowAddAddressModal(false)}
               >
                 إلغاء
@@ -136,6 +146,6 @@ export default function AddressSelector({
           </div>
         </div>
       )}
-    </>
+    </div>
   );
 }

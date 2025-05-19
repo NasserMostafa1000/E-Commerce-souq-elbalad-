@@ -6,7 +6,7 @@ export default function OrderActions({
 }) {
   return (
     <div>
-      <h2>إدخال صورة التحويل</h2>
+      <h2 className="highlighted-title">إدخال صورة التحويل</h2>
       <input
         type="file"
         accept="image/*"
