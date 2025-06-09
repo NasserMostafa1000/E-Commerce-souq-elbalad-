@@ -7,7 +7,7 @@ Souq-Elbalad is a **single-store e-commerce platform** designed for store owners
 
 ## 🚀 Project Overview
 
-- **Frontend**: Built using **React** for a responsive and dynamic user experience.
+- **Frontend**: Built using **React.js** for a responsive and dynamic user experience.
 - **Backend**: Powered by **ASP.NET Core REST APIs with ef-core** to handle data management and communication.
 - **Admin Panel**: Provides an interface for store owners and managers to manage the store and products.
 
@@ -55,6 +55,15 @@ Souq-Elbalad is a **single-store e-commerce platform** designed for store owners
 
 - Add an email address for shipping agents who can only manage orders related to their cases and update the status of shipments.
 - Shipping agents have access only to the orders they are assigned to, not to full order or customer data.
+ 
+
+
+
+#### **Clients Searching**
+-  feature to monitor and log real-time client search activity.
+- Introduced backend endpoint `searching` to expose Clients searching for their need prosuct (for admin use).
+
+
 
 ---
 
@@ -80,6 +89,7 @@ Souq-Elbalad is a **single-store e-commerce platform** designed for store owners
 - Admin can view all customer data, manage store owners and managers, and perform site-wide configurations.
 
 ---
+
 
 
 
