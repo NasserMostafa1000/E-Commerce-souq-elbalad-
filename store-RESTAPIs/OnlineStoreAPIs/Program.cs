@@ -13,6 +13,9 @@ using StoreBusinessLayer.Users;
 using StoreDataAccessLayer;
 using StoreServices.CartServices;
 using StoreServices.ClientsServices;
+using StoreServices.DiscountCodes;
+using StoreServices.Discounts;
+using StoreServices.LoginServices;
 using StoreServices.OrdersServices;
 using StoreServices.Products.ProductInterfaces;
 using StoreServices.ShippingServices;
@@ -42,10 +45,14 @@ namespace OnlineStoreAPIs
             builder.Services.AddScoped<IProductColor,ColorsRepo>();
             builder.Services.AddScoped<IProductSize,SizesRepo>();
             builder.Services.AddScoped<IOrder,OrdersRepo>();
+            builder.Services.AddScoped<ISearchLogs, SearchingLogsRepo>();
+            builder.Services.AddScoped<IShippingDiscountCodesRepo, shippingDiscountCodesRepo>();
             builder.Services.AddScoped<ICart,CartsRepo>();
             builder.Services.AddScoped<IAdminContactInfo, AdminContactInfo>();
-
             builder.Services.AddSignalR();
+
+            builder.Services.AddHttpClient<FaceBookLoginService>();
+
 
             // إعداد المصادقة باستخدام JWT
             var key = Encoding.UTF8.GetBytes(builder.Configuration["JwtSettings:Key"]);

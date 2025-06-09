@@ -22,7 +22,6 @@ export default function PrivacyPolicy() {
           خدماتنا.
         </p>
       </section>
-
       <section className="mb-6">
         <h2 className="text-2xl font-semibold mb-3 text-black">
           2. جمع البيانات
@@ -33,19 +32,17 @@ export default function PrivacyPolicy() {
           الدفع الخاصة بك عند إجراء عمليات الشراء.
         </p>
       </section>
-
       <section className="mb-6">
         <h2 className="text-2xl font-semibold mb-3 text-black">
           3. استخدام البيانات
         </h2>
-        <ul className="list-disc pl-6 space-y-2">
+        <ul style={{ direction: "rtl" }} className="list-disc pl-6 space-y-2">
           <li>معالجة الطلبات وتوفير المنتجات والخدمات.</li>
           <li>تحسين تجربة المستخدم وتحليل أداء الموقع.</li>
           <li>التواصل مع العملاء لتقديم الدعم أو العروض الخاصة.</li>
           <li>ضمان الامتثال للمتطلبات القانونية والتنظيمية.</li>
         </ul>
       </section>
-
       <section className="mb-6">
         <h2 className="text-2xl font-semibold mb-3 text-black">
           4. سياسة الكوكيز
@@ -56,7 +53,6 @@ export default function PrivacyPolicy() {
           المتصفح.
         </p>
       </section>
-
       <section className="mb-6">
         <h2 className="text-2xl font-semibold mb-3 text-black">
           5. مشاركة البيانات
@@ -66,7 +62,6 @@ export default function PrivacyPolicy() {
           الضرورية مثل معالجة الدفع أو الامتثال للقوانين.
         </p>
       </section>
-
       <section className="mb-6">
         <h2 className="text-2xl font-semibold mb-3 text-black">6. الأمان</h2>
         <p>
@@ -74,17 +69,20 @@ export default function PrivacyPolicy() {
           يمكننا ضمان أمان البيانات بنسبة 100٪ عبر الإنترنت.
         </p>
       </section>
-
+      <h2 className="text-2xl font-semibold mb-3 text-black">
+        7. حقوق المستخدم
+      </h2>{" "}
       <section className="mb-6">
-        <h2 className="text-2xl font-semibold mb-3 text-black">
-          7. حقوق المستخدم
-        </h2>
+        <p className="mb-4 text-red-600 font-semibold text-lg">
+          لا يجوز استرجاع المنتج بعد استلامه ما لم يكن به عيب واضح أو مخالف
+          للوصف.
+        </p>
+
         <p>
           يحق لك طلب تعديل أو حذف بياناتك الشخصية، كما يمكنك إلغاء الاشتراك في
           الاتصالات التسويقية في أي وقت.
         </p>
       </section>
-
       <section className="mb-6">
         <h2 className="text-2xl font-semibold mb-3 text-black">8. التعديلات</h2>
         <p>
@@ -92,7 +90,6 @@ export default function PrivacyPolicy() {
           تغييرات جوهرية عبر البريد الإلكتروني أو من خلال الموقع.
         </p>
       </section>
-
       <section className="text-center mt-6">
         <p>
           إذا كانت لديك أي استفسارات، لا تتردد في

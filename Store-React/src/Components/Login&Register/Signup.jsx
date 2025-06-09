@@ -137,6 +137,7 @@ export default function Signup() {
           onChange={handleChange}
           required
         />
+
         <button type="submit">تسجيل</button>
       </form>
     </div>

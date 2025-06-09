@@ -281,6 +281,27 @@
   },
   {
     "ContainingType": "OnlineStoreAPIs.Controllers.ClientsController",
+    "Method": "Count",
+    "RelativePath": "api/Clients/Count",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 200
+      },
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 500
+      }
+    ]
+  },
+  {
+    "ContainingType": "OnlineStoreAPIs.Controllers.ClientsController",
     "Method": "GetClientAddresses",
     "RelativePath": "api/Clients/GetAddresses",
     "HttpMethod": "GET",
@@ -1772,6 +1793,89 @@
           "text/json"
         ],
         "StatusCode": 401
+      }
+    ]
+  },
+  {
+    "ContainingType": "StoreApi.Controllers.SearchLogsController",
+    "Method": "AddSearch",
+    "RelativePath": "api/SearchLogs/add",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "searchTerm",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "StoreApi.Controllers.SearchLogsController",
+    "Method": "GetAllSearches",
+    "RelativePath": "api/SearchLogs/all",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "StoreApi.Controllers.SearchLogsController",
+    "Method": "GetClientSearches",
+    "RelativePath": "api/SearchLogs/client/{clientId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "clientId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "StoreApi.Controllers.SearchLogsController",
+    "Method": "GetTopSearches",
+    "RelativePath": "api/SearchLogs/top",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "OnlineStoreAPIs.Controllers.ShippingDiscountsCodes",
+    "Method": "VerifyAndDeactivateCode",
+    "RelativePath": "api/ShippingDiscountsCodes/verify-code",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "code",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 401
+      },
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 200
       }
     ]
   },

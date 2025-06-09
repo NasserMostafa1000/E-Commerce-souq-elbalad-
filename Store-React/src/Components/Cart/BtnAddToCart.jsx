@@ -13,10 +13,7 @@ export default function AddToCart({ productDetailsId, Quantity }) {
   const handleCartClick = async () => {
     const token = sessionStorage.getItem("token");
     if (!token) {
-      setMessage("يجب تسجيل الدخول لمتابعة عملية الاضافه الي السله.");
-      setTimeout(() => {
-        navigate("/login");
-      }, 5000);
+      navigate("/login");
       return;
     }
 

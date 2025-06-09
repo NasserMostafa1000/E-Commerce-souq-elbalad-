@@ -92,7 +92,7 @@ export const stopListeningToMessages = () => {
 };
 export default function getDeliveryDate() {
   const today = new Date();
-  today.setDate(today.getDate() + 7);
+  today.setDate(today.getDate() + 1);
   return today.toLocaleDateString("ar-EG", {
     weekday: "long",
     year: "numeric",
@@ -172,6 +172,7 @@ export function GetUserNameFromToken(token) {
     return null;
   }
 }
+
 export const colors = [
   { ColorId: 1, ColorName: "أحمر" },
   { ColorId: 2, ColorName: "أزرق" },

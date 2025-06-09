@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "YcGt9VGtT6Y=",
+  "dgSpecHash": "QJmhF08vCq0=",
   "success": true,
-  "projectFilePath": "C:\\Users\\Elalamia\\Desktop\\Souq\\store-RESTAPIs\\OnlineStoreAPIs\\OnlineStoreAPIs.csproj",
+  "projectFilePath": "E:\\WORK\\My Apps\\Souq\\store-RESTAPIs\\OnlineStoreAPIs\\OnlineStoreAPIs.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Elalamia\\.nuget\\packages\\azure.core\\1.38.0\\azure.core.1.38.0.nupkg.sha512",
     "C:\\Users\\Elalamia\\.nuget\\packages\\azure.identity\\1.11.4\\azure.identity.1.11.4.nupkg.sha512",

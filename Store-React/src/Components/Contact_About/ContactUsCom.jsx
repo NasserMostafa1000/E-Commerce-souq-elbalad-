@@ -45,7 +45,7 @@ export default function ContactUsCom() {
         />
       </Helmet>
 
-      <h2 className="contact-heading">📬 تواصل معنا</h2>
+      <h1 className="contact-heading">📬 تواصل معنا</h1>
 
       {loading ? (
         <div className="loading">⏳ جاري التحميل...</div>

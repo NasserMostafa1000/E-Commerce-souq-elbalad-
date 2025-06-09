@@ -20,7 +20,7 @@ import {
   PostListOfOrdersDetails,
 } from "./api.js";
 import SuccessForm from "./SuccessForm.jsx";
-import { SiteName } from "../Constant.js";
+import API_BASE_URL, { SiteName } from "../Constant.js";
 
 export default function PurchaseOperationDetails() {
   const [ShipPrice, SetShiPrice] = useState(0);
@@ -35,16 +35,18 @@ export default function PurchaseOperationDetails() {
   const [newPhoneNumber, setNewPhoneNumber] = useState("");
   const [transactionImage, setTransactionImage] = useState(null);
   const [newAddress, setNewAddress] = useState({
-    governorate: "",
-    city: "",
+    governorate: "الغربية",
+    city: "سمنود",
     street: "",
   });
   const [loading, setLoading] = useState(true);
   const [purchaseLoading, setPurchaseLoading] = useState(false);
   const [message, setMessage] = useState(""); // رسالة الحالة أو الخطأ
   const [showSuccessForm, setShowSuccessForm] = useState(false);
+
   const navigate = useNavigate();
   const location = useLocation();
+
   const Products = location.state?.Product;
   const isBuyDisabled =
     (!UserTransactionNum && paymentMethod === "online") ||
@@ -58,6 +60,7 @@ export default function PurchaseOperationDetails() {
     paymentMethod === "cod"
       ? productPrice + ShipPrice + 30
       : productPrice + ShipPrice;
+
   useEffect(() => {
     const _fetchAddresses = async () => {
       try {
@@ -88,6 +91,9 @@ export default function PurchaseOperationDetails() {
         const JsonResponse = await fetchShipOrderInfo(token, Governorate);
         SetAdminTransactionNum(JsonResponse.transactionNumber);
         SetShiPrice(JsonResponse.shipPrice);
+
+        // هنا نضيف تحديث القيمة الأصلية قبل الخصم
+        setShipPriceBeforeDiscount(JsonResponse.shipPrice);
       } catch (error) {
         console.error(error.message);
       }
@@ -158,6 +164,57 @@ export default function PurchaseOperationDetails() {
       setPurchaseLoading(false);
     }
   }
+  const [discountCode, setDiscountCode] = useState("");
+  const [discountMessage, setDiscountMessage] = useState("");
+  const [isDiscountValid, setIsDiscountValid] = useState(false);
+  const [discountApplied, setDiscountApplied] = useState(false); // حالة تطبيق الخصم
+  const [shipPriceBeforeDiscount, setShipPriceBeforeDiscount] =
+    useState(ShipPrice);
+
+  const handleCheckDiscountCode = async () => {
+    if (!discountCode.trim()) {
+      setDiscountMessage("يرجى إدخال كود الخصم");
+      setIsDiscountValid(false);
+      return;
+    }
+
+    try {
+      const response = await fetch(
+        `${API_BASE_URL}ShippingDiscountsCodes/verify-code`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(discountCode.trim()),
+        }
+      );
+
+      if (response.ok) {
+        // تم تفعيل الكود وتحديث حالته في السيرفر
+        setIsDiscountValid(true);
+        setDiscountMessage("تم تفعيل الكود وتم استخدامه بنجاح، الشحن مجاني!");
+        setDiscountApplied(true);
+        SetShiPrice(0); // خصم الشحن
+
+        // تنبيه (مثلاً تنبيه منبثق)
+        alert("تم تفعيل كود الخصم بنجاح. الشحن أصبح مجاني.");
+      } else {
+        // خطأ مثل كود غير صالح أو مستخدم مسبقاً
+        const errorData = await response.json();
+        setIsDiscountValid(false);
+        setDiscountMessage(errorData.message);
+        setDiscountApplied(false);
+        // إعادة الشحن للسعر الأصلي
+        SetShiPrice(shipPriceBeforeDiscount);
+      }
+    } catch (error) {
+      setIsDiscountValid(false);
+      setDiscountMessage(error.message);
+      setDiscountApplied(false);
+      SetShiPrice(shipPriceBeforeDiscount);
+    }
+  };
 
   if (loading) return <div>جاري التحميل...</div>;
 
@@ -218,10 +275,43 @@ export default function PurchaseOperationDetails() {
         <span className="invoice-label">شحن إلى:</span>
         <span className="invoice-value">{addresses[selectedAddressId]}</span>
       </div>
-
+      <p>
+        <strong style={{ color: "red" }}>
+          يصلك المنتج في خلال ساعات قليله او ربما دقائق حيث يعتمد علي وزن الشحنه
+        </strong>
+      </p>
       <div className="invoice-row">
         <span className="invoice-label">الموعد النهائي للاستلام:</span>
+
         <span className="invoice-value">{getDeliveryDate()}</span>
+      </div>
+
+      <div className="discount-code-section">
+        <label htmlFor="discountCode">كود الخصم:</label>
+        <p> </p>
+        <input
+          type="text"
+          id="discountCode"
+          value={discountCode}
+          onChange={(e) => setDiscountCode(e.target.value)}
+          placeholder="أدخل كود الخصم هنا"
+        />
+        <span style={{ color: "red" }}>
+          لا تضغط علي تحقق ان كنت لن تشتري لانه سيتم تفعيل الخصم والغاء صلاحيه
+          الكود
+        </span>
+        {!discountApplied && (
+          <button onClick={handleCheckDiscountCode}>تحقق</button>
+        )}{" "}
+        {discountMessage && (
+          <div
+            className={`discount-message ${
+              isDiscountValid ? "success" : "error"
+            }`}
+          >
+            {discountMessage}
+          </div>
+        )}
       </div>
 
       <div className="payment-methods">
@@ -237,6 +327,10 @@ export default function PurchaseOperationDetails() {
         </label>
         {paymentMethod === "online" && (
           <div className="payment-details">
+            <div className="final-price">
+              السعر النهائي:
+              <strong>{finalPrice} جنيه</strong>
+            </div>
             <strong>حول الفلوس هنا: {AdminTransactionNum}</strong>
           </div>
         )}
@@ -276,12 +370,19 @@ export default function PurchaseOperationDetails() {
       {paymentMethod === "online" && (
         <div className="note">
           <h2>ملحوظة</h2>
-          <p>
+          <p style={{ color: "black" }}>
             يجب تحويل المبلغ المستحق بالكامل إلى هذا الرقم قبل الضغط على زر شراء{" "}
             <strong>{AdminTransactionNum}</strong> وإن كان المبلغ المستحق أقل أو
             أكثر من المطلوب فسيتم رد الأموال تلقائيًا على نفس الرقم في غضون 24
             ساعة.
           </p>
+        </div>
+      )}
+
+      {paymentMethod === "cod" && (
+        <div className="final-price">
+          السعر النهائي:
+          <strong>{finalPrice} جنيه</strong>
         </div>
       )}
 
@@ -293,11 +394,6 @@ export default function PurchaseOperationDetails() {
           setNewPhoneNumber={setNewPhoneNumber}
         />
       )}
-
-      <div className="final-price">
-        السعر النهائي:
-        <strong>{finalPrice} جنيه</strong>
-      </div>
 
       {!isBuyDisabled && (
         <button

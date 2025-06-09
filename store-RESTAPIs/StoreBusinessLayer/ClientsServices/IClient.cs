@@ -21,6 +21,7 @@ namespace StoreServices.ClientsServices
         Task<Dictionary<int, string>> GetClientAddresses(int ClientId);
         Task<ClientsDtos.GetClientReq> GetClientById(int ClientId);
         Task<List<GetClientsReq>> GetClientsAsync(int PageNum);
+         Task<int> Count();
 
     }
 }

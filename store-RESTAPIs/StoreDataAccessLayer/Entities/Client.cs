@@ -1,4 +1,6 @@
-﻿namespace StoreDataAccessLayer.Entities
+﻿using StoreDataLayer.Entities;
+
+namespace StoreDataAccessLayer.Entities
 {
     public class Client
     {
@@ -9,6 +11,7 @@
         public Cart? Cart { get; set; }
         public ICollection<Address>? Addresses { get; set; }
         public ICollection<Orders>? Orders { get; set; }
+        public ICollection<SearchingLogs>? ClientSearching { get; set; }
 
 
     }

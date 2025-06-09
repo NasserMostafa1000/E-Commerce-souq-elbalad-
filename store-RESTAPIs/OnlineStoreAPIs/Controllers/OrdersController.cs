@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.SignalR;
 using OnlineStoreAPIs.Hubs;
 using StoreBusinessLayer.Carts;
 using StoreBusinessLayer.Clients;
+using StoreBusinessLayer.NotificationServices;
 using StoreBusinessLayer.Orders;
 using StoreDataAccessLayer.Entities;
 using StoreServices.CartServices;
@@ -47,6 +48,10 @@ namespace OnlineStoreAPIs.Controllers
             }catch(Exception ex)
             {
                 return BadRequest(new { message = ex.Message.ToString() });
+            }
+            finally
+            {
+              await  NotificationsCreator.SendNotification("طلب جديد","قام احد ما بطلب مشتريات من موقعكم الاكتروني","Nasermostafa.ma122@gmail.com","gmail");
             }
 
         }

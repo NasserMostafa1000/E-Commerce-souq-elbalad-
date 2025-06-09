@@ -42,6 +42,21 @@ namespace OnlineStoreAPIs.Controllers
         }
 
 
+        [HttpGet("Count")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        public async Task<ActionResult>Count()
+        {
+            try
+            {
+                return Ok(new { Count = await _ClientsRepo.Count() });
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new { message = ex.Message.ToString() });
+                            }
+        }
+
         [HttpGet("GetAddresses")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status401Unauthorized)]

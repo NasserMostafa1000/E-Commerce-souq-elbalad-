@@ -209,5 +209,17 @@ namespace StoreBusinessLayer.Clients
 
             return clients ?? new List<GetClientsReq>();
         }
+        public async Task<int> Count()
+        {
+            try
+            {
+
+                var ClientCount =await _DbContext.Clients.CountAsync();
+                return ClientCount;
+            }catch(Exception ex)
+            {
+                throw new Exception(ex.Message.ToString());
+            }
+}
     }
 }

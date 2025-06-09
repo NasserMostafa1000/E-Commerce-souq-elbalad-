@@ -4,7 +4,7 @@ const fs = require('fs');
 async function generateSitemap() {
   try {
     // نداء API لجيب الـ IDs باستخدام fetch
-    const response = await fetch('https://commerceapis-001-site1.ktempurl.com/api/Product/GetProductsIds');
+    const response = await fetch('https://naserstore-001-site1.otempurl.com/api/Product/GetProductsIds');
     
     // التأكد أن الرد كان بنجاح
     if (!response.ok) {
@@ -24,7 +24,7 @@ async function generateSitemap() {
       sitemapContent += `
   <url>
     <loc>https://souq-elbalad.netlify.app/productDetails/${id}</loc>
-    <changefreq>weekly</changefreq>
+    <changefreq>daily</changefreq>
     <priority>0.7</priority>
   </url>
 `;
@@ -58,7 +58,7 @@ async function generateSitemap() {
 
   <url>
     <loc>https://souq-elbalad.netlify.app/FindProducts</loc>
-    <changefreq>weekly</changefreq>
+    <changefreq>daily</changefreq>
     <priority>0.8</priority>
   </url>
 `;

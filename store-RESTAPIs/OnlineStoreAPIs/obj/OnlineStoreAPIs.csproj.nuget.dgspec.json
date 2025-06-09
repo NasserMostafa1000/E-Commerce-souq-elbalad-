@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Elalamia\\Desktop\\Souq\\store-RESTAPIs\\OnlineStoreAPIs\\OnlineStoreAPIs.csproj": {}
+    "E:\\WORK\\My Apps\\Souq\\store-RESTAPIs\\OnlineStoreAPIs\\OnlineStoreAPIs.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Elalamia\\Desktop\\Souq\\store-RESTAPIs\\OnlineStoreAPIs\\OnlineStoreAPIs.csproj": {
+    "E:\\WORK\\My Apps\\Souq\\store-RESTAPIs\\OnlineStoreAPIs\\OnlineStoreAPIs.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Elalamia\\Desktop\\Souq\\store-RESTAPIs\\OnlineStoreAPIs\\OnlineStoreAPIs.csproj",
+        "projectUniqueName": "E:\\WORK\\My Apps\\Souq\\store-RESTAPIs\\OnlineStoreAPIs\\OnlineStoreAPIs.csproj",
         "projectName": "OnlineStoreAPIs",
-        "projectPath": "C:\\Users\\Elalamia\\Desktop\\Souq\\store-RESTAPIs\\OnlineStoreAPIs\\OnlineStoreAPIs.csproj",
+        "projectPath": "E:\\WORK\\My Apps\\Souq\\store-RESTAPIs\\OnlineStoreAPIs\\OnlineStoreAPIs.csproj",
         "packagesPath": "C:\\Users\\Elalamia\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Elalamia\\Desktop\\Souq\\store-RESTAPIs\\OnlineStoreAPIs\\obj\\",
+        "outputPath": "E:\\WORK\\My Apps\\Souq\\store-RESTAPIs\\OnlineStoreAPIs\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -32,8 +32,8 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\Elalamia\\Desktop\\Souq\\store-RESTAPIs\\StoreBusinessLayer\\StoreServices.csproj": {
-                "projectPath": "C:\\Users\\Elalamia\\Desktop\\Souq\\store-RESTAPIs\\StoreBusinessLayer\\StoreServices.csproj"
+              "E:\\WORK\\My Apps\\Souq\\store-RESTAPIs\\StoreBusinessLayer\\StoreServices.csproj": {
+                "projectPath": "E:\\WORK\\My Apps\\Souq\\store-RESTAPIs\\StoreBusinessLayer\\StoreServices.csproj"
               }
             }
           }
@@ -100,14 +100,14 @@
         }
       }
     },
-    "C:\\Users\\Elalamia\\Desktop\\Souq\\store-RESTAPIs\\StoreBusinessLayer\\StoreServices.csproj": {
+    "E:\\WORK\\My Apps\\Souq\\store-RESTAPIs\\StoreBusinessLayer\\StoreServices.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Elalamia\\Desktop\\Souq\\store-RESTAPIs\\StoreBusinessLayer\\StoreServices.csproj",
+        "projectUniqueName": "E:\\WORK\\My Apps\\Souq\\store-RESTAPIs\\StoreBusinessLayer\\StoreServices.csproj",
         "projectName": "StoreServices",
-        "projectPath": "C:\\Users\\Elalamia\\Desktop\\Souq\\store-RESTAPIs\\StoreBusinessLayer\\StoreServices.csproj",
+        "projectPath": "E:\\WORK\\My Apps\\Souq\\store-RESTAPIs\\StoreBusinessLayer\\StoreServices.csproj",
         "packagesPath": "C:\\Users\\Elalamia\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Elalamia\\Desktop\\Souq\\store-RESTAPIs\\StoreBusinessLayer\\obj\\",
+        "outputPath": "E:\\WORK\\My Apps\\Souq\\store-RESTAPIs\\StoreBusinessLayer\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -128,8 +128,8 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\Elalamia\\Desktop\\Souq\\store-RESTAPIs\\StoreDataAccessLayer\\StoreDataLayer.csproj": {
-                "projectPath": "C:\\Users\\Elalamia\\Desktop\\Souq\\store-RESTAPIs\\StoreDataAccessLayer\\StoreDataLayer.csproj"
+              "E:\\WORK\\My Apps\\Souq\\store-RESTAPIs\\StoreDataAccessLayer\\StoreDataLayer.csproj": {
+                "projectPath": "E:\\WORK\\My Apps\\Souq\\store-RESTAPIs\\StoreDataAccessLayer\\StoreDataLayer.csproj"
               }
             }
           }
@@ -187,14 +187,14 @@
         }
       }
     },
-    "C:\\Users\\Elalamia\\Desktop\\Souq\\store-RESTAPIs\\StoreDataAccessLayer\\StoreDataLayer.csproj": {
+    "E:\\WORK\\My Apps\\Souq\\store-RESTAPIs\\StoreDataAccessLayer\\StoreDataLayer.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Elalamia\\Desktop\\Souq\\store-RESTAPIs\\StoreDataAccessLayer\\StoreDataLayer.csproj",
+        "projectUniqueName": "E:\\WORK\\My Apps\\Souq\\store-RESTAPIs\\StoreDataAccessLayer\\StoreDataLayer.csproj",
         "projectName": "StoreDataLayer",
-        "projectPath": "C:\\Users\\Elalamia\\Desktop\\Souq\\store-RESTAPIs\\StoreDataAccessLayer\\StoreDataLayer.csproj",
+        "projectPath": "E:\\WORK\\My Apps\\Souq\\store-RESTAPIs\\StoreDataAccessLayer\\StoreDataLayer.csproj",
         "packagesPath": "C:\\Users\\Elalamia\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Elalamia\\Desktop\\Souq\\store-RESTAPIs\\StoreDataAccessLayer\\obj\\",
+        "outputPath": "E:\\WORK\\My Apps\\Souq\\store-RESTAPIs\\StoreDataAccessLayer\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

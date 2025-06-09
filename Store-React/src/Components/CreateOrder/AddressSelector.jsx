@@ -1,6 +1,7 @@
 import { egyptianGovernorates } from "../../Components/utils";
 import { handleAddAddress } from "./api.js";
-
+import "../../Styles/LoadingCircle.css";
+import { useState } from "react";
 export default function AddressSelector({
   addresses,
   selectedAddressId,
@@ -11,12 +12,16 @@ export default function AddressSelector({
   setNewAddress,
   setAddresses,
 }) {
+  const [isLoading, setIsLoading] = useState(false);
   const HandleSaveClick = async () => {
     const token = sessionStorage.getItem("token");
     if (!token) {
       alert("لم يتم العثور على التوكن، الرجاء تسجيل الدخول.");
       return;
     }
+
+    setIsLoading(true); // ⬅️ إظهار التحميل
+
     try {
       const addressId = await handleAddAddress(token, {
         governorate: newAddress.governorate,
@@ -26,6 +31,7 @@ export default function AddressSelector({
 
       if (!addressId)
         throw new Error("❌ فشل في الحصول على ID العنوان الجديد!");
+
       setAddresses((prevAddresses) => ({
         ...prevAddresses,
         [addressId]: `${newAddress.governorate}- مدينه ${newAddress.city} شارع ${newAddress.street}`,
@@ -37,11 +43,18 @@ export default function AddressSelector({
     } catch (error) {
       console.error("❌ خطأ أثناء إضافة العنوان:", error.message);
       alert(`⚠️ خطأ: ${error.message}`);
+    } finally {
+      setIsLoading(false); // ⬅️ إخفاء التحميل
     }
   };
-
   return (
     <div className="space-y-4 p-4">
+      {isLoading && (
+        <div className="loader-overlay">
+          <div className="loader"></div>
+        </div>
+      )}
+
       <h4 className="text-lg font-semibold text-gray-800">العنوان المختار</h4>
 
       {Object.keys(addresses).length > 0 ? (
@@ -117,7 +130,7 @@ export default function AddressSelector({
               />
 
               <label className="block text-sm font-medium text-gray-700">
-                الشارع:
+                الشارع+الشقه+الدور+تفاصيل اضافيه
               </label>
               <input
                 type="text"

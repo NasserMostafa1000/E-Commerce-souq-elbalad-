@@ -99,8 +99,8 @@ export default function Home() {
 
     // Handle RTL scroll detection
     const isAtEnd = isRtl
-      ? scrollLeft <= 10
-      : scrollLeft + clientWidth >= scrollWidth - 10;
+      ? scrollLeft <= 300
+      : scrollLeft + clientWidth >= scrollWidth - 300;
 
     if (isAtEnd) fetchMore();
   }, []);
@@ -188,22 +188,54 @@ export default function Home() {
   return (
     <div>
       <Helmet>
-        <title>الصفحه الرئيسيه - {SiteName} </title>
+        {/* Title & Description */}
+        <title>تسوق الآن من {SiteName} | خصومات على أفضل المنتجات</title>
         <meta
           name="description"
-          content="   يمكنك تسوق منتجات بأفضل جوده وأفضل ماركات عالميه يتحدث عنها البشر , مع خصومات تصل الي خمسون بالمائة"
+          content="تصفح مجموعة ضخمة من المنتجات الأصلية في {سوق البلد}. احصل على أفضل العروض والخصومات حتى 50%. شحن سريع ودعم ممتاز."
+        />
+        <meta
+          name="keywords"
+          content="تسوق, خصومات, عروض, ماركات, منتجات أصلية, متجر إلكتروني, {سوق البلد}"
+        />
+        <link rel="canonical" href={window.location.href} />
+
+        {/* Open Graph for Facebook & WhatsApp */}
+        <meta property="og:type" content="website" />
+        <meta
+          property="og:title"
+          content="تسوق الآن من {سوق البلد} | عروض وخصومات مذهلة"
+        />
+        <meta
+          property="og:description"
+          content="أفضل المنتجات الأصلية مع خصومات تصل إلى 50%. اكتشف العروض الآن!"
+        />
+        <meta property="og:url" content={window.location.href} />
+        <meta property="og:site_name" content={SiteName} />
+
+        {/* Twitter Card */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta
+          name="twitter:title"
+          content="تسوق من {سوق البلد} | أفضل الأسعار والعروض"
+        />
+        <meta
+          name="twitter:description"
+          content="منتجات أصلية وماركات عالمية مع خصومات تصل إلى 50%. سارع بالشراء!"
         />
       </Helmet>
+
       <NavBar />
+      <h1 style={{ textAlign: "center" }}>مرحبا بك في سوق البلد</h1>
       <img
         src="/ProjectImages/Discounts.jpg"
         alt="Discounts"
         style={{ width: "100%", height: "40vh" }}
       />
 
-      <h1 className="discount-title">
-        <span>%60</span> تسوق منتجات مع خصومات تصل إلى
-      </h1>
+      <h2 className="discount-title">
+        <span>%60</span> خصومات سوق البلد تصل الي
+      </h2>
 
       <div className="products-container" ref={DiscountProductsRef}>
         {Discountproducts.map((product) => (
@@ -220,7 +252,7 @@ export default function Home() {
       </div>
 
       <CategoryItems />
-      <h1 className="discount-title">تسوق احدث موديلات الملابس</h1>
+      <h4 className="discount-title">تسوق احدث موديلات الملابس</h4>
 
       {clothesProducts.length === 0 && loadingClothes ? (
         <p style={{ textAlign: "center" }}>جارٍ تحميل منتجات الملابس...</p>
@@ -248,7 +280,7 @@ export default function Home() {
 
       <CategoryItems />
 
-      <h1 className="discount-title"> منتجات {SiteName} </h1>
+      <h3 className="discount-title"> منتجات {SiteName} </h3>
 
       {products.length === 0 && LoadingProducts ? (
         <p style={{ textAlign: "center" }}>جارٍ تحميل المنتجات ...</p>

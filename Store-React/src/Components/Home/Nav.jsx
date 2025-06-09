@@ -210,6 +210,16 @@ export default function NavBar() {
                 </li>
                 <li>
                   <Link
+                    to="/Admin/ClientsSearshing"
+                    className="sidebar-link"
+                    onClick={() => setMenuOpen(false)}
+                  >
+                    <FiUsers size={18} style={{ marginLeft: "5px" }} />
+                    بحث العملاء
+                  </Link>
+                </li>
+                <li>
+                  <Link
                     to="/Admin/shipping-prices"
                     className="sidebar-link"
                     onClick={() => setMenuOpen(false)}
@@ -410,15 +420,15 @@ export default function NavBar() {
                       </li>
                       <li>
                         <a
-                          onClick={() => HandleSearhOn("أحذية")}
+                          onClick={() => HandleSearhOn("مواد غذائية")}
                           className="sidebar-link"
                         >
-                          أحذية
+                          منتجات غذائيه
                         </a>
                       </li>
                       <li>
                         <a
-                          onClick={() => HandleSearhOn("ساعات")}
+                          onClick={() => HandleSearhOn("أجهزه منزلية")}
                           className="sidebar-link"
                         >
                           ساعات
@@ -434,7 +444,9 @@ export default function NavBar() {
                       </li>
                       <li>
                         <a
-                          onClick={() => HandleSearhOn("سيارات")}
+                          onClick={() =>
+                            HandleSearhOn("منتجات العناية الشخصية")
+                          }
                           className="sidebar-link"
                         >
                           سيارات

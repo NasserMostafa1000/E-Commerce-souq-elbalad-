@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "Wq/qahJIh+zkep9JiDPSKhyQAa/lmxOcSZhd2yqV9z4=",
+  "Hash": "glHCCdLzhUq3wdDU2+yfEByaIVGuw5l2M2bPfy7Sdw4=",
   "Source": "OnlineStoreAPIs",
   "BasePath": "_content/OnlineStoreAPIs",
   "Mode": "Default",
@@ -10,7 +10,7 @@
     {
       "Name": "OnlineStoreAPIs\\wwwroot",
       "Source": "OnlineStoreAPIs",
-      "ContentRoot": "C:\\Users\\Elalamia\\Desktop\\Souq\\store-RESTAPIs\\OnlineStoreAPIs\\wwwroot\\",
+      "ContentRoot": "E:\\WORK\\My Apps\\Souq\\store-RESTAPIs\\OnlineStoreAPIs\\wwwroot\\",
       "BasePath": "_content/OnlineStoreAPIs",
       "Pattern": "**"
     }

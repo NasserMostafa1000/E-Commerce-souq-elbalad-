@@ -11,11 +11,14 @@ namespace StoreServices.LoginServices
     public class LoginFactory
     {
         private readonly Dictionary<string, ILoginServices.ILoginServices> LoginProviderNames_loginsObjects;
+
         public LoginFactory(AppDbContext dbContext)
         {
             LoginProviderNames_loginsObjects = new Dictionary<string, ILoginServices.ILoginServices>
             {
                 { "google", new GoogleLogin(dbContext) },
+                { "facebook", new FaceBookLoginService(dbContext) },
+
                { "online store", new OnlineStoreLogin(dbContext) }
 
             };

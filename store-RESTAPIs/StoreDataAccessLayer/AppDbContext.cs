@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using StoreDataAccessLayer.Entities;
 using StoreDataAccessLayer.EntitiesConfigurations;
+using StoreDataLayer.Entities;
 
 namespace StoreDataAccessLayer
 {
@@ -8,12 +9,13 @@ namespace StoreDataAccessLayer
     {
         public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)
         {
-
+   
         }
         public DbSet<User> Users { get; set; }
         public DbSet<ShippingCoasts> ShipPrices { get; set; }
         public DbSet<PaymentsMethods> PaymentMethods { get; set; }
-
+        public DbSet<ShippingDiscountCodes>ShippingDiscountsCodes { get; set; }
+        public DbSet<SearchingLogs> SearchingLogs { get; set; }
         public DbSet<Category> Category { get; set; }
 
         public DbSet<OrderStatus> OrderStatus { get; set; }

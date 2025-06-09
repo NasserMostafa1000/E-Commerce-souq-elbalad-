@@ -1,170 +1,116 @@
-/* استيراد الخطوط */
-@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
-
-/* تأثير الأنيميشن عند التحميل */
-@keyframes fadeInDown {
-  from {
-    opacity: 0;
-    transform: translateY(-20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* تأثير التدرج اللوني للخلفية */
-@keyframes gradientBackground {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
-}
-
 .about-contact-container {
-  max-width: 1200px;
-  margin: 40px auto;
-  padding: 2rem;
-  font-family: "Roboto", sans-serif;
-  background: linear-gradient(135deg, #f9f9f9, #e0e0e0);
-  background-size: 200% 200%;
-  animation: fadeInUp 0.8s ease-out, gradientBackground 15s infinite ease;
-  border-radius: 15px;
-  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
-  text-align: center;
+  padding: 40px 20px;
+  max-width: 1000px;
+  margin: auto;
+  font-family: "Cairo", sans-serif;
+  color: #222;
 }
 
-/* قسم من نحن */
-.about-section {
-  margin-bottom: 2rem;
-  text-align: center;
+.about-section,
+.contact-section {
+  background-color: #f9f9f9;
+  padding: 30px;
+  border-radius: 16px;
+  margin-bottom: 40px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.07);
 }
 
-.about-title {
-  font-size: 2.8rem;
-  margin-bottom: 1rem;
-  color: #333;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  font-weight: 700;
-  animation: fadeInDown 0.8s ease;
+.about-title,
+.contact-title {
+  font-size: 28px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  text-align: center;
+  color: #2c3e50;
 }
 
 .about-description {
-  font-size: 1.2rem;
-  color: #555;
-  line-height: 1.6;
-  max-width: 800px;
-  margin: 0 auto;
+  font-size: 18px;
+  color: #222;
+  line-height: 1.8;
+  text-align: justify;
 }
 
-/* قسم تواصل معنا */
-.contact-section {
+.contact-loading,
+.contact-error {
   text-align: center;
-}
-
-.contact-title {
-  font-size: 2.2rem;
-  margin-bottom: 1.5rem;
-  color: #007bff;
-  animation: fadeInDown 0.8s ease;
+  font-size: 18px;
+  color: #c0392b;
 }
 
 .contact-cards {
   display: flex;
   flex-wrap: wrap;
+  gap: 20px;
   justify-content: center;
-  gap: 1.5rem;
-  margin-bottom: 2rem;
 }
 
 .contact-card {
-  background-color: #fff;
-  border-radius: 15px;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
-  padding: 1.8rem;
+  background-color: white;
+  border-radius: 12px;
+  padding: 20px;
   width: 300px;
-  text-align: right;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  position: relative;
-  overflow: hidden;
-}
-
-.contact-card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  direction: rtl;
 }
 
 .contact-card p {
-  margin: 0.6rem 0;
-  font-size: 1.1rem;
-  color: #555;
-  line-height: 1.5;
+  margin: 12px 0;
+  font-size: 16px;
 }
 
-.whatsapp-link {
-  color: #25d366;
+.icon {
+  vertical-align: middle;
+  margin-left: 8px;
+  color: #3498db;
+}
+
+.whatsapp-link,
+.phone-link,
+.email-link {
+  color: #34495e;
   text-decoration: none;
-  font-weight: bold;
-  transition: color 0.3s ease, transform 0.3s ease;
+  transition: color 0.3s ease;
 }
 
 .whatsapp-link:hover {
-  color: #1ebea5;
-  transform: scale(1.05);
+  color: #25d366;
+}
+.phone-link:hover {
+  color: #2980b9;
+}
+.email-link:hover {
+  color: #e67e22;
 }
 
 .contact-footer {
-  margin-top: 1.5rem;
-  font-size: 0.9rem;
-  color: #777;
-  border-top: 1px solid #ddd;
-  padding-top: 1rem;
-  animation: fadeInUp 0.8s ease;
-}
-
-/* حالات التحميل والأخطاء */
-.contact-loading,
-.contact-error {
+  margin-top: 40px;
   text-align: center;
-  font-size: 1.5rem;
-  color: #d9534f;
-  margin: 2rem 0;
-  animation: fadeInUp 0.8s ease;
+  font-size: 15px;
+  color: #7f8c8d;
+}
+.discount-title {
+  text-align: center;
+  color: black;
+  padding: 10px;
+  font-size: 2rem; /* حجم افتراضي */
+  font-weight: bold;
 }
 
-/* تأثيرات استجابة الشاشات */
-@media (max-width: 768px) {
-  .about-contact-container {
-    padding: 1.5rem;
-  }
+.discount-title span {
+  color: red;
+}
 
-  .about-title {
-    font-size: 2.2rem;
+/* للأجهزة الصغيرة (هواتف) */
+@media (max-width: 750px) {
+  .discount-title {
+    font-size: 1rem; /* تصغير الحجم قليلاً */
   }
+}
 
-  .contact-card {
-    width: 100%;
-    padding: 1.5rem;
-  }
-
-  .contact-cards {
-    gap: 1rem;
+/* للأجهزة الكبيرة (شاشات كمبيوتر) */
+@media (min-width: 1200px) {
+  .discount-title {
+    font-size: 2.5rem; /* تكبير الحجم */
   }
 }

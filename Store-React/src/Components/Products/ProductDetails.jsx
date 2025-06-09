@@ -91,9 +91,8 @@ export default function ProductDetails() {
     const token = sessionStorage.getItem("token");
     if (!token) {
       setMessage("يجب تسجيل الدخول لمتابعة عملية الشراء.");
-      setTimeout(() => {
-        navigate("/Login", { state: { path: `/ProductDetails/${id}` } });
-      }, 1000);
+      navigate("/Login", { state: { path: `/ProductDetails/${id}` } });
+
       return;
     }
     const Product = CurrentProduct();
@@ -187,9 +186,9 @@ export default function ProductDetails() {
         <span style={{ color: "red" }}>غير متوفر حالياً</span>
       ) : (
         <>
-          <span style={{ color: "green" }}>متوفر</span>
+          <span style={{ color: "green" }}>متوفر في المخزون</span>
           <span style={{ color: availableQuantity < 10 ? "red" : "green" }}>
-            ({availableQuantity} قطعة)
+            ({availableQuantity})
           </span>
         </>
       )}
@@ -302,7 +301,7 @@ export default function ProductDetails() {
               </select>
             )}
           </div>
-          {Sizes.length > 0 && (
+          {Sizes.length > 0 && Sizes[0] !== null && (
             <div>
               المقاس:
               {Sizes.length === 1 ? (

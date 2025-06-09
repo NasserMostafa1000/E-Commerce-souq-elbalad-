@@ -4,7 +4,7 @@
 //        "windowsAuthentication": false,
 //        "anonymousAuthentication": true,
 //        "iisExpress": {
-//            "applicationUrl": "http://commerceapis-001-site1.ktempurl.com/",
+//            "applicationUrl": "http://naserstore-001-site1.otempurl.com",
 
 //            "sslPort": 44385
 //        }
@@ -14,7 +14,7 @@
 //            "commandName": "Project",
 //            "dotnetRunMessages": true,
 //            "launchBrowser": true,
-//            "applicationUrl": "http://commerceapis-001-site1.ktempurl.com/",
+//            "applicationUrl": "http://naserstore-001-site1.otempurl.com",
 //            "environmentVariables": {
 //                "ASPNETCORE_ENVIRONMENT": "Production"
 //            }
@@ -23,7 +23,7 @@
 //            "commandName": "Project",
 //            "dotnetRunMessages": true,
 //            "launchBrowser": true,
-//            "applicationUrl": "https://commerceapis-001-site1.ktempurl.com/;http://commerceapis-001-site1.ktempurl.com/",
+//            "applicationUrl": "https://naserstore-001-site1.otempurl.com;http://naserstore-001-site1.otempurl.com",
 //            "environmentVariables": {
 //                "ASPNETCORE_ENVIRONMENT": "Production"
 //            }
@@ -82,5 +82,5 @@
     }
 }
 
-}
+
 

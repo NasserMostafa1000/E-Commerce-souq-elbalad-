@@ -30,3 +30,19 @@ C:\Users\Elalamia\Desktop\Souq\store-RESTAPIs\StoreDataAccessLayer\obj\Debug\net
 C:\Users\Elalamia\Desktop\Souq\store-RESTAPIs\StoreDataAccessLayer\obj\Debug\net8.0\StoreDataLayer.pdb
 C:\Users\Elalamia\Desktop\Souq\store-RESTAPIs\StoreDataAccessLayer\obj\Debug\net8.0\StoreDataLayer.genruntimeconfig.cache
 C:\Users\Elalamia\Desktop\Souq\store-RESTAPIs\StoreDataAccessLayer\obj\Debug\net8.0\ref\StoreDataLayer.dll
+E:\WORK\My Apps\Souq\store-RESTAPIs\StoreDataAccessLayer\bin\Debug\net8.0\appsettings.Development.json
+E:\WORK\My Apps\Souq\store-RESTAPIs\StoreDataAccessLayer\bin\Debug\net8.0\StoreDataLayer.deps.json
+E:\WORK\My Apps\Souq\store-RESTAPIs\StoreDataAccessLayer\bin\Debug\net8.0\StoreDataLayer.runtimeconfig.json
+E:\WORK\My Apps\Souq\store-RESTAPIs\StoreDataAccessLayer\bin\Debug\net8.0\StoreDataLayer.dll
+E:\WORK\My Apps\Souq\store-RESTAPIs\StoreDataAccessLayer\bin\Debug\net8.0\StoreDataLayer.pdb
+E:\WORK\My Apps\Souq\store-RESTAPIs\StoreDataAccessLayer\obj\Debug\net8.0\StoreDataLayer.csproj.AssemblyReference.cache
+E:\WORK\My Apps\Souq\store-RESTAPIs\StoreDataAccessLayer\obj\Debug\net8.0\StoreDataLayer.GeneratedMSBuildEditorConfig.editorconfig
+E:\WORK\My Apps\Souq\store-RESTAPIs\StoreDataAccessLayer\obj\Debug\net8.0\StoreDataLayer.AssemblyInfoInputs.cache
+E:\WORK\My Apps\Souq\store-RESTAPIs\StoreDataAccessLayer\obj\Debug\net8.0\StoreDataLayer.AssemblyInfo.cs
+E:\WORK\My Apps\Souq\store-RESTAPIs\StoreDataAccessLayer\obj\Debug\net8.0\StoreDataLayer.csproj.CoreCompileInputs.cache
+E:\WORK\My Apps\Souq\store-RESTAPIs\StoreDataAccessLayer\obj\Debug\net8.0\StoreDataLayer.sourcelink.json
+E:\WORK\My Apps\Souq\store-RESTAPIs\StoreDataAccessLayer\obj\Debug\net8.0\StoreDataLayer.dll
+E:\WORK\My Apps\Souq\store-RESTAPIs\StoreDataAccessLayer\obj\Debug\net8.0\refint\StoreDataLayer.dll
+E:\WORK\My Apps\Souq\store-RESTAPIs\StoreDataAccessLayer\obj\Debug\net8.0\StoreDataLayer.pdb
+E:\WORK\My Apps\Souq\store-RESTAPIs\StoreDataAccessLayer\obj\Debug\net8.0\StoreDataLayer.genruntimeconfig.cache
+E:\WORK\My Apps\Souq\store-RESTAPIs\StoreDataAccessLayer\obj\Debug\net8.0\ref\StoreDataLayer.dll
