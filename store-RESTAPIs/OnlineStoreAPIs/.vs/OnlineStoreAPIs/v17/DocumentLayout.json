@@ -3,12 +3,12 @@
   "WorkspaceRootPath": "E:\\WORK\\My Apps\\Souq\\store-RESTAPIs\\OnlineStoreAPIs\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{80373FDE-A381-4E7E-A74C-8AC3D612F9AF}|OnlineStoreAPIs.csproj|e:\\work\\my apps\\souq\\store-restapis\\onlinestoreapis\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{80373FDE-A381-4E7E-A74C-8AC3D612F9AF}|OnlineStoreAPIs.csproj|solutionrelative:properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{80373FDE-A381-4E7E-A74C-8AC3D612F9AF}|OnlineStoreAPIs.csproj|e:\\work\\my apps\\souq\\store-restapis\\onlinestoreapis\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
       "RelativeMoniker": "D:0:0:{80373FDE-A381-4E7E-A74C-8AC3D612F9AF}|OnlineStoreAPIs.csproj|solutionrelative:appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{80373FDE-A381-4E7E-A74C-8AC3D612F9AF}|OnlineStoreAPIs.csproj|e:\\work\\my apps\\souq\\store-restapis\\onlinestoreapis\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{80373FDE-A381-4E7E-A74C-8AC3D612F9AF}|OnlineStoreAPIs.csproj|solutionrelative:properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{1057FC58-AEE3-40B8-8115-DB33DF9E6B32}|..\\StoreBusinessLayer\\StoreServices.csproj|e:\\work\\my apps\\souq\\store-restapis\\storebusinesslayer\\clientsservices\\clientsrepo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
@@ -25,7 +25,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 6,
+          "SelectedChildIndex": 5,
           "Children": [
             {
               "$type": "Bookmark",
@@ -49,26 +49,26 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "appsettings.json",
               "DocumentMoniker": "E:\\WORK\\My Apps\\Souq\\store-RESTAPIs\\OnlineStoreAPIs\\appsettings.json",
               "RelativeDocumentMoniker": "appsettings.json",
               "ToolTip": "E:\\WORK\\My Apps\\Souq\\store-RESTAPIs\\OnlineStoreAPIs\\appsettings.json",
               "RelativeToolTip": "appsettings.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAACWAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAxAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
               "WhenOpened": "2025-06-09T07:32:03.996Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "launchSettings.json",
               "DocumentMoniker": "E:\\WORK\\My Apps\\Souq\\store-RESTAPIs\\OnlineStoreAPIs\\Properties\\launchSettings.json",
               "RelativeDocumentMoniker": "Properties\\launchSettings.json",
               "ToolTip": "E:\\WORK\\My Apps\\Souq\\store-RESTAPIs\\OnlineStoreAPIs\\Properties\\launchSettings.json",
               "RelativeToolTip": "Properties\\launchSettings.json",
-              "ViewState": "AgIAADsAAAAAAAAAAAAAAFQAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAFQAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
               "WhenOpened": "2025-06-09T07:29:54.979Z",
               "EditorCaption": ""
@@ -83,8 +83,7 @@
               "RelativeToolTip": "Controllers\\ClientsController.cs",
               "ViewState": "AgIAABEAAAAAAAAAAAAAADUAAAAgAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-09T07:00:43.779Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-09T07:00:43.779Z"
             },
             {
               "$type": "Document",
@@ -96,8 +95,7 @@
               "RelativeToolTip": "..\\StoreBusinessLayer\\ClientsServices\\ClientsRepo.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAkAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-09T06:55:59.029Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-09T06:55:59.029Z"
             }
           ]
         }
